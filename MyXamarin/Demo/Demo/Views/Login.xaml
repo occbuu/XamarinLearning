@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.Login">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="LOGIN" FontSize="25" TextColor="#0CA809" HorizontalTextAlignment="Center"/>
+            <Entry WidthRequest="200"
+                   Placeholder="Username" >
+            </Entry>
+            <Entry WidthRequest="200"
+                   Placeholder="Password">
+            </Entry>
+            <Button Text="Login" BackgroundColor="#CC0000"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
