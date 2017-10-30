@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.Profile">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Image Source="avatar.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Full Name:" Font="Bold,20"/>
+                <Label Text="Phan Khánh Vân" Font="Italic,20" TextColor="Blue" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="D.O.B:" Font="Bold,20"/>
+                <Label Text="17 / 11 / 1995" Font="Italic,20" TextColor="Blue" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Gender:" Font="Bold,20"/>
+                <Label Text="Male" Font="Italic,20" TextColor="Blue" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Address:" Font="Bold,20"/>
+                <Label Text="Hoang Dieu, District 4, HCMC" Font="Italic,20" TextColor="Blue" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nationality:" Font="Bold,20"/>
+                <Label Text="Viet Nam" Font="Italic,20" TextColor="Blue" />
+            </StackLayout>
+            <Button Text="Test Toast" BackgroundColor="Blue" Clicked="Button_Toast"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
