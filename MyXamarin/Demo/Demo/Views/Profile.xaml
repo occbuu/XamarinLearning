@@ -25,7 +25,7 @@
                 <Label Text="Nationality:" Font="Bold,20"/>
                 <Label Text="Viet Nam" Font="Italic,20" TextColor="Blue" />
             </StackLayout>
-            <Button Text="Test Toast" BackgroundColor="Blue" Clicked="Button_Toast"/>
+            <Button x:Name="TestToast" Text="Test Toast" BackgroundColor="Blue" Clicked="Button_Toast"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Plugin.Toasts;
+using Xamarin.Forms;
 
 namespace Demo.Droid
 {
@@ -15,6 +17,12 @@ namespace Demo.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            DependencyService.Register<ToastNotification>(); // Register your dependency
+            ToastNotification.Init(this);
+
+            // If you are using Android you must pass through the activity
+            ToastNotification.Init(this);
             LoadApplication(new App());
         }
     }

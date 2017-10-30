@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Toasts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,17 @@ namespace Demo.Views
             InitializeComponent();
         }
 
-        private void Button_Toast(object sender, EventArgs e)
+        private async void Button_Toast(object sender, EventArgs e)
         {
-            Context 
+            var notificator = DependencyService.Get<IToastNotificator>();
+
+            var options = new NotificationOptions()
+            {
+                Title = "Hello",
+                Description = "I'm Van !!!"
+            };
+
+            var result = await notificator.Notify(options);
         }
     }
 }
