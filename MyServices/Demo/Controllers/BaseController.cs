@@ -38,6 +38,11 @@ namespace Demo.Controllers
         /// </summary>
         public static TimeOutInService TimeOutInService { get { return ZConverts.Xingleton<TimeOutInService>(); } }
 
+        /// <summary>
+        /// Object service
+        /// </summary>
+        public static ObjectService ObjectService { get { return ZConverts.Xingleton<ObjectService>(); } }
+
         #endregion
     }
 }
