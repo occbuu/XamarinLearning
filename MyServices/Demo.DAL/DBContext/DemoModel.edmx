@@ -1,0 +1,2428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PSNSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnnualLeave">
+          <Key>
+            <PropertyRef Name="LeaveID" />
+          </Key>
+          <Property Name="LeaveID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LeaveType" Type="varchar" MaxLength="20" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="Balance" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ExpiredDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="AnnualLeaveDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeaveID" Type="varchar" MaxLength="30" />
+          <Property Name="LeaveAmt" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="FromDate" Type="smalldatetime" />
+          <Property Name="ToDate" Type="smalldatetime" />
+          <Property Name="RefID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CandidateInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InfoType" Type="varchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="AppliedDate" />
+          </Key>
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PositionID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AppliedDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="AppliedBy" Type="varchar" MaxLength="20" />
+          <Property Name="AppliedRef" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="TimesOfInterview" Type="int" />
+        </EntityType>
+        <EntityType Name="CommonCode">
+          <Key>
+            <PropertyRef Name="CommonTypeID" />
+            <PropertyRef Name="CommonID" />
+          </Key>
+          <Property Name="CommonTypeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CommonID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="StrValue1" Type="nvarchar(max)" />
+          <Property Name="StrValue2" Type="nvarchar(max)" />
+          <Property Name="NumValue1" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="NumValue2" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="CanDelete" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="NoteOfUsage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CommonType">
+          <Key>
+            <PropertyRef Name="CommonTypeID" />
+          </Key>
+          <Property Name="CommonTypeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="AutoGenerateType" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="CanDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="DailyReport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="DRType" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Comment" Type="ntext" />
+          <Property Name="Approval" Type="ntext" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="AppPer" Type="int" />
+          <Property Name="HRComment" Type="ntext" />
+          <Property Name="HRCommentBy" Type="varchar" MaxLength="20" />
+          <Property Name="HRPer" Type="int" />
+          <Property Name="Percentage" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="DateOfReport" Type="smalldatetime" />
+          <Property Name="ApproveComplete" Type="bit" />
+          <Property Name="HRCommentComplete" Type="bit" />
+        </EntityType>
+        <EntityType Name="DailyReportDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DRId" Type="bigint" />
+          <Property Name="TaskID" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="WorkingHours" Type="int" />
+          <Property Name="EstimateToFinish" Type="int" />
+          <Property Name="PerOfComplete" Type="int" />
+        </EntityType>
+        <EntityType Name="DocumentSample">
+          <Key>
+            <PropertyRef Name="DocumentCode" />
+          </Key>
+          <Property Name="DocumentCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DocumentType" Type="varchar" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="PreparedBy" Type="varchar" MaxLength="50" />
+          <Property Name="SubmitedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
+          <Property Name="IsExternal" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="IssueDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="Language" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DRFeedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FBContent" Type="ntext" />
+          <Property Name="RequiredHigher" Type="bit" />
+          <Property Name="HigherUID" Type="varchar" MaxLength="20" />
+          <Property Name="RefPrevious" Type="bigint" />
+          <Property Name="RefDRid" Type="bigint" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="MarkComplete" Type="bit" />
+          <Property Name="MarkBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmployeeInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InfoType" Type="varchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="URL" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="varchar" MaxLength="20" />
+          <Property Name="CanDownload" Type="bit" />
+          <Property Name="IsPublic" Type="bit" />
+          <Property Name="SelfEdit" Type="bit" />
+          <Property Name="IsHashed" Type="bit" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="BeginDate" />
+          </Key>
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PositionID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BeginDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="EndDate" Type="smalldatetime" />
+          <Property Name="RefNo" Type="varchar" MaxLength="250" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="EmployeeType" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="DRFeedbackers" Type="nvarchar(max)" />
+          <Property Name="ReportTo" Type="varchar" MaxLength="20" />
+          <Property Name="HRTo" Type="varchar" MaxLength="20" />
+          <Property Name="WorkingType" Type="varchar" MaxLength="50" />
+          <Property Name="ContractLink" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectID" Type="varchar" MaxLength="30" />
+          <Property Name="Level" Type="int" />
+          <Property Name="CreatedBY" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ExamLib">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExamID" Type="bigint" />
+          <Property Name="Question" Type="ntext" />
+          <Property Name="QuestionURL" Type="varchar(max)" />
+          <Property Name="Answer" Type="ntext" />
+          <Property Name="AnswerURL" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ExamResult">
+          <Key>
+            <PropertyRef Name="ExamLibID" />
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ExamLibID" Type="bigint" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Result" Type="ntext" />
+          <Property Name="ResultURL" Type="varchar(max)" />
+          <Property Name="Score" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Holidays">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DayOfMonth" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="varchar" MaxLength="4" />
+          <Property Name="TypeOfDay" Type="varchar" MaxLength="20" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Interview">
+          <Key>
+            <PropertyRef Name="InterviewID" />
+          </Key>
+          <Property Name="InterviewID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Interviewee" Type="varchar" MaxLength="20" />
+          <Property Name="PositionID" Type="varchar" MaxLength="50" />
+          <Property Name="StartTime" Type="smalldatetime" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="Place" Type="ntext" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="PreID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InterviewInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterviewID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InfoType" Type="varchar" MaxLength="20" />
+          <Property Name="Value" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="LeaveApply">
+          <Key>
+            <PropertyRef Name="ApplyID" />
+          </Key>
+          <Property Name="ApplyID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="30" />
+          <Property Name="ApplyType" Type="varchar" MaxLength="20" />
+          <Property Name="FromTime" Type="smalldatetime" />
+          <Property Name="ToTime" Type="smalldatetime" />
+          <Property Name="TotalHours" Type="float" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="LeaveApplyDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplyID" Type="varchar" MaxLength="20" />
+          <Property Name="ApplyDetailType" Type="varchar" MaxLength="20" />
+          <Property Name="ActionBy" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Links">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ObjectType" Type="varchar" MaxLength="50" />
+          <Property Name="FileName" Type="varchar(max)" />
+          <Property Name="URL" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+          <Property Name="Brief" Type="nvarchar" MaxLength="500" />
+          <Property Name="content" Type="ntext" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="NewsType" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ImgUrl" Type="varchar(max)" />
+          <Property Name="Thumbnail" Type="varchar(max)" />
+          <Property Name="NewsBy" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brief" Type="nvarchar(max)" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="FromUID" Type="varchar" MaxLength="50" />
+          <Property Name="ToUIDs" Type="varchar(max)" />
+          <Property Name="AffectURL" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="RefID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NotificationInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotificationType" Type="varchar" MaxLength="50" />
+          <Property Name="RefID" Type="varchar" MaxLength="50" />
+          <Property Name="SentMail" Type="tinyint" />
+          <Property Name="SentWhatsApp" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Objects">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ObjectGroup" Type="varchar" MaxLength="20" />
+          <Property Name="ObjectType" Type="varchar" MaxLength="20" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="PID" Type="varchar" MaxLength="50" />
+          <Property Name="PIDDate" Type="smalldatetime" />
+          <Property Name="PIDIssue" Type="nvarchar" MaxLength="250" />
+          <Property Name="DoB" Type="smalldatetime" />
+          <Property Name="PoB" Type="nvarchar" MaxLength="250" />
+          <Property Name="PerAdd" Type="nvarchar(max)" />
+          <Property Name="TemAdd" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="LocationID" Type="varchar" MaxLength="20" />
+          <Property Name="Tel" Type="varchar" MaxLength="250" />
+          <Property Name="Fax" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Website" Type="varchar(max)" />
+          <Property Name="TaxCode" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="TKMID" Type="int" />
+          <Property Name="WAID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OfficialStatement">
+          <Key>
+            <PropertyRef Name="StatementID" />
+          </Key>
+          <Property Name="StatementID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="StatementType" Type="varchar" MaxLength="20" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ApprovedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApprovedDate" Type="smalldatetime" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="isPublic" Type="bit" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+          </Key>
+          <Property Name="PayrollID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FromTime" Type="smalldatetime" />
+          <Property Name="ToTime" Type="smalldatetime" />
+          <Property Name="RefTK" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="TotalHours" Type="float" />
+          <Property Name="TotalWorkingDays" Type="float" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ApprovedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="PayrollEmployee">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="PayrollID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TotalAmt" Type="varchar" MaxLength="550" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PayrollEmployeeDetail">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PayType" />
+          </Key>
+          <Property Name="PayrollID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PayType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="250" />
+          <Property Name="Qty" Type="float" />
+          <Property Name="Price" Type="varchar" MaxLength="550" />
+          <Property Name="PayAmt" Type="varchar" MaxLength="550" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="Negative" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="RefID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PeopleSkills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillSetID" Type="bigint" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="SeftEvaluate" Type="int" />
+          <Property Name="YearOfExperience" Type="int" />
+          <Property Name="ProjectName" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PositionName" Type="varchar(max)" />
+          <Property Name="JobDescription" Type="varchar(max)" />
+          <Property Name="JobLevel" Type="varchar" MaxLength="20" />
+          <Property Name="JobRequirement" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="DepartmentID" Type="varchar" MaxLength="20" />
+          <Property Name="JobCategory" Type="varchar" MaxLength="20" />
+          <Property Name="WorkLocation" Type="varchar(max)" />
+          <Property Name="SalaryType" Type="varchar" MaxLength="50" />
+          <Property Name="PreferLang" Type="varchar" MaxLength="50" />
+          <Property Name="PositionType" Type="varchar" MaxLength="20" />
+          <Property Name="ManageGroup" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PositionInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionID" Type="varchar" MaxLength="20" />
+          <Property Name="InfoType" Type="varchar" MaxLength="20" />
+          <Property Name="Value" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Punishment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="PunishType" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModidfiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="RefStatement" Type="varbinary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="QA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionType" Type="varchar" MaxLength="50" />
+          <Property Name="Question" Type="nvarchar(max)" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="AskedBy" Type="varchar" MaxLength="50" />
+          <Property Name="AskedDate" Type="smalldatetime" />
+          <Property Name="AnsweredBy" Type="varchar" MaxLength="50" />
+          <Property Name="AnsweredDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Highlight" Type="bit" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RequestBy" Type="varchar" MaxLength="30" />
+          <Property Name="RequestType" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="RequestTo" Type="varchar" MaxLength="30" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="ModifiledBy" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Role_Menu_Module">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ObjectUDAffect" />
+            <PropertyRef Name="ObjectType" />
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="RoleID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ObjectUDAffect" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ObjectType" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ModuleID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AllowNew" Type="bit" />
+          <Property Name="AllowEdit" Type="bit" />
+          <Property Name="AllowDelete" Type="bit" />
+          <Property Name="AllowView" Type="bit" />
+          <Property Name="AllowPrint" Type="bit" />
+          <Property Name="AllowDownload" Type="bit" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="SkillSets">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Languages" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="RefURL" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubName" Type="varchar" MaxLength="500" />
+          <Property Name="Category" Type="varchar" MaxLength="20" />
+          <Property Name="PID" Type="varchar" MaxLength="50" />
+          <Property Name="Note" Type="varchar(max)" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TimeKeeping">
+          <Key>
+            <PropertyRef Name="TimeKeepID" />
+          </Key>
+          <Property Name="TimeKeepID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FromTime" Type="smalldatetime" />
+          <Property Name="ToTime" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="30" />
+          <Property Name="ApprovedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="TimeOutIn">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ObjectID" Type="nvarchar" MaxLength="50" />
+          <Property Name="StampTime" Type="smalldatetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeviceID" Type="varchar" MaxLength="50" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="Longtitude" Type="varchar" MaxLength="50" />
+          <Property Name="Altitude" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="IsUsed" Type="bit" />
+        </EntityType>
+        <EntityType Name="TKDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeKeepID" Type="varchar" MaxLength="20" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="DayOfMonth" Type="int" />
+          <Property Name="TotalHour" Type="varchar" MaxLength="20" />
+          <Property Name="TypeOfDay" Type="varchar" MaxLength="20" />
+          <Property Name="Note" Type="varchar" MaxLength="50" />
+          <Property Name="RefID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="UserLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="Action" Type="varchar(max)" />
+          <Property Name="Objects" Type="varchar(max)" />
+          <Property Name="ContentBefore" Type="ntext" />
+          <Property Name="ContentAfter" Type="ntext" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PWD" Type="varchar(max)" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="20" />
+          <Property Name="LastLogin" Type="smalldatetime" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="LoginName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="RoleID" Type="varchar" MaxLength="20" />
+          <Property Name="ManageGroup" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WorkingTaskHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskID" Type="varchar" MaxLength="50" />
+          <Property Name="ActionBy" Type="varchar" MaxLength="20" />
+          <Property Name="Action" Type="nvarchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="ActionTime" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="WorkingTasks">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskName" Type="nvarchar(max)" />
+          <Property Name="TechLevel" Type="int" />
+          <Property Name="LangLevel" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TaskType" Type="varchar(max)" />
+          <Property Name="TaskURL" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="PreviousTask" Type="varchar" MaxLength="50" />
+          <Property Name="NextTask" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+          <Property Name="ModifiedDate" Type="smalldatetime" />
+        </EntityType>
+        <EntityContainer Name="PSNSPModelStoreContainer">
+          <EntitySet Name="AnnualLeave" EntityType="Self.AnnualLeave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnnualLeaveDetail" EntityType="Self.AnnualLeaveDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CandidateInfo" EntityType="Self.CandidateInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommonCode" EntityType="Self.CommonCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommonType" EntityType="Self.CommonType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyReport" EntityType="Self.DailyReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DailyReportDetail" EntityType="Self.DailyReportDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentSample" EntityType="Self.DocumentSample" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DRFeedback" EntityType="Self.DRFeedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeInfo" EntityType="Self.EmployeeInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamLib" EntityType="Self.ExamLib" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExamResult" EntityType="Self.ExamResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Holidays" EntityType="Self.Holidays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interview" EntityType="Self.Interview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterviewInfo" EntityType="Self.InterviewInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveApply" EntityType="Self.LeaveApply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveApplyDetail" EntityType="Self.LeaveApplyDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Links" EntityType="Self.Links" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotificationInfo" EntityType="Self.NotificationInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Objects" EntityType="Self.Objects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficialStatement" EntityType="Self.OfficialStatement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayrollEmployee" EntityType="Self.PayrollEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayrollEmployeeDetail" EntityType="Self.PayrollEmployeeDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PeopleSkills" EntityType="Self.PeopleSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PositionInfo" EntityType="Self.PositionInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Punishment" EntityType="Self.Punishment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QA" EntityType="Self.QA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role_Menu_Module" EntityType="Self.Role_Menu_Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkillSets" EntityType="Self.SkillSets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeKeeping" EntityType="Self.TimeKeeping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeOutIn" EntityType="Self.TimeOutIn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TKDetail" EntityType="Self.TKDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkingTaskHistory" EntityType="Self.WorkingTaskHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkingTasks" EntityType="Self.WorkingTasks" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PSNSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnnualLeave">
+          <Key>
+            <PropertyRef Name="LeaveID" />
+          </Key>
+          <Property Name="LeaveID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LeaveType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Balance" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ExpiredDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AnnualLeaveDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeaveID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LeaveAmt" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="RefID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CandidateInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InfoType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="AppliedDate" />
+          </Key>
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppliedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AppliedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AppliedRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="TimesOfInterview" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CommonCode">
+          <Key>
+            <PropertyRef Name="CommonTypeID" />
+            <PropertyRef Name="CommonID" />
+          </Key>
+          <Property Name="CommonTypeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CommonID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StrValue1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StrValue2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumValue1" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="NumValue2" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="CanDelete" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="NoteOfUsage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CommonType">
+          <Key>
+            <PropertyRef Name="CommonTypeID" />
+          </Key>
+          <Property Name="CommonTypeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AutoGenerateType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="CanDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DailyReport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DRType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Approval" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AppPer" Type="Int32" />
+          <Property Name="HRComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HRCommentBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HRPer" Type="Int32" />
+          <Property Name="Percentage" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="DateOfReport" Type="DateTime" Precision="0" />
+          <Property Name="ApproveComplete" Type="Boolean" />
+          <Property Name="HRCommentComplete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DailyReportDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DRId" Type="Int64" />
+          <Property Name="TaskID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingHours" Type="Int32" />
+          <Property Name="EstimateToFinish" Type="Int32" />
+          <Property Name="PerOfComplete" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DocumentSample">
+          <Key>
+            <PropertyRef Name="DocumentCode" />
+          </Key>
+          <Property Name="DocumentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="PreparedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubmitedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsExternal" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="IssueDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DRFeedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FBContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequiredHigher" Type="Boolean" />
+          <Property Name="HigherUID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RefPrevious" Type="Int64" />
+          <Property Name="RefDRid" Type="Int64" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="MarkComplete" Type="Boolean" />
+          <Property Name="MarkBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmployeeInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InfoType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CanDownload" Type="Boolean" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <Property Name="SelfEdit" Type="Boolean" />
+          <Property Name="IsHashed" Type="Boolean" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="BeginDate" />
+          </Key>
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="RefNo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="DRFeedbackers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReportTo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HRTo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WorkingType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="Int32" />
+          <Property Name="CreatedBY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExamLib">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamID" Type="Int64" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExamResult">
+          <Key>
+            <PropertyRef Name="ExamLibID" />
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ExamLibID" Type="Int64" Nullable="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResultURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Score" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DayOfMonth" Type="Int32" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfDay" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Interview">
+          <Key>
+            <PropertyRef Name="InterviewID" />
+          </Key>
+          <Property Name="InterviewID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Interviewee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PositionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="0" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InterviewInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterviewID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InfoType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="LeaveApply">
+          <Key>
+            <PropertyRef Name="ApplyID" />
+          </Key>
+          <Property Name="ApplyID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromTime" Type="DateTime" Precision="0" />
+          <Property Name="ToTime" Type="DateTime" Precision="0" />
+          <Property Name="TotalHours" Type="Double" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="LeaveApplyDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplyID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ApplyDetailType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ActionBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="ModuleID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Brief" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NewsType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ImgUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NewsBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brief" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromUID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToUIDs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AffectURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NotificationInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SentMail" Type="Byte" />
+          <Property Name="SentWhatsApp" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Object">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjectGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIDDate" Type="DateTime" Precision="0" />
+          <Property Name="PIDIssue" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DoB" Type="DateTime" Precision="0" />
+          <Property Name="PoB" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PerAdd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TemAdd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="LocationID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="TKMID" Type="Int32" />
+          <Property Name="WAID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OfficialStatement">
+          <Key>
+            <PropertyRef Name="StatementID" />
+          </Key>
+          <Property Name="StatementID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StatementType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isPublic" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+          </Key>
+          <Property Name="PayrollID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromTime" Type="DateTime" Precision="0" />
+          <Property Name="ToTime" Type="DateTime" Precision="0" />
+          <Property Name="RefTK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="TotalHours" Type="Double" />
+          <Property Name="TotalWorkingDays" Type="Double" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="PayrollEmployee">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="PayrollID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalAmt" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PayrollEmployeeDetail">
+          <Key>
+            <PropertyRef Name="PayrollID" />
+            <PropertyRef Name="ObjectID" />
+            <PropertyRef Name="PayType" />
+          </Key>
+          <Property Name="PayrollID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Double" />
+          <Property Name="Price" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="PayAmt" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Negative" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="RefID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PeopleSkill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillSetID" Type="Int64" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SeftEvaluate" Type="Int32" />
+          <Property Name="YearOfExperience" Type="Int32" />
+          <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PositionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="JobLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="JobRequirement" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="DepartmentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="JobCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="WorkLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreferLang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PositionType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ManageGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PositionInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InfoType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Punishment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PunishType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModidfiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="RefStatement" Type="Binary" MaxLength="50" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="QA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AskedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AskedDate" Type="DateTime" Precision="0" />
+          <Property Name="AnsweredBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AnsweredDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Highlight" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RequestBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RequestType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequestTo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiledBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role_Menu_Module">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="ObjectUDAffect" />
+            <PropertyRef Name="ObjectType" />
+            <PropertyRef Name="ModuleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectUDAffect" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModuleID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AllowNew" Type="Boolean" />
+          <Property Name="AllowEdit" Type="Boolean" />
+          <Property Name="AllowDelete" Type="Boolean" />
+          <Property Name="AllowView" Type="Boolean" />
+          <Property Name="AllowPrint" Type="Boolean" />
+          <Property Name="AllowDownload" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SkillSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Languages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RefURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubjectID" />
+          </Key>
+          <Property Name="SubjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TimeKeeping">
+          <Key>
+            <PropertyRef Name="TimeKeepID" />
+          </Key>
+          <Property Name="TimeKeepID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FromTime" Type="DateTime" Precision="0" />
+          <Property Name="ToTime" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TimeOutIn">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StampTime" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longtitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Altitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TKDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeKeepID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DayOfMonth" Type="Int32" />
+          <Property Name="TotalHour" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfDay" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Objects" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContentBefore" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentAfter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastLogin" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ManageGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WorkingTaskHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ActionTime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="WorkingTask">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TechLevel" Type="Int32" />
+          <Property Name="LangLevel" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaskType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TaskURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PreviousTask" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NextTask" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="PSNSPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnnualLeaves" EntityType="Self.AnnualLeave" />
+          <EntitySet Name="AnnualLeaveDetails" EntityType="Self.AnnualLeaveDetail" />
+          <EntitySet Name="CandidateInfoes" EntityType="Self.CandidateInfo" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+          <EntitySet Name="CommonCodes" EntityType="Self.CommonCode" />
+          <EntitySet Name="CommonTypes" EntityType="Self.CommonType" />
+          <EntitySet Name="DailyReports" EntityType="Self.DailyReport" />
+          <EntitySet Name="DailyReportDetails" EntityType="Self.DailyReportDetail" />
+          <EntitySet Name="DocumentSamples" EntityType="Self.DocumentSample" />
+          <EntitySet Name="DRFeedbacks" EntityType="Self.DRFeedback" />
+          <EntitySet Name="EmployeeInfoes" EntityType="Self.EmployeeInfo" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Exams" EntityType="Self.Exam" />
+          <EntitySet Name="ExamLibs" EntityType="Self.ExamLib" />
+          <EntitySet Name="ExamResults" EntityType="Self.ExamResult" />
+          <EntitySet Name="Holidays" EntityType="Self.Holiday" />
+          <EntitySet Name="Interviews" EntityType="Self.Interview" />
+          <EntitySet Name="InterviewInfoes" EntityType="Self.InterviewInfo" />
+          <EntitySet Name="LeaveApplies" EntityType="Self.LeaveApply" />
+          <EntitySet Name="LeaveApplyDetails" EntityType="Self.LeaveApplyDetail" />
+          <EntitySet Name="Links" EntityType="Self.Link" />
+          <EntitySet Name="Modules" EntityType="Self.Module" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="NotificationInfoes" EntityType="Self.NotificationInfo" />
+          <EntitySet Name="Objects" EntityType="Self.Object" />
+          <EntitySet Name="OfficialStatements" EntityType="Self.OfficialStatement" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
+          <EntitySet Name="PayrollEmployees" EntityType="Self.PayrollEmployee" />
+          <EntitySet Name="PayrollEmployeeDetails" EntityType="Self.PayrollEmployeeDetail" />
+          <EntitySet Name="PeopleSkills" EntityType="Self.PeopleSkill" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="PositionInfoes" EntityType="Self.PositionInfo" />
+          <EntitySet Name="Punishments" EntityType="Self.Punishment" />
+          <EntitySet Name="QAs" EntityType="Self.QA" />
+          <EntitySet Name="Requests" EntityType="Self.Request" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Role_Menu_Module" EntityType="Self.Role_Menu_Module" />
+          <EntitySet Name="SkillSets" EntityType="Self.SkillSet" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TimeKeepings" EntityType="Self.TimeKeeping" />
+          <EntitySet Name="TimeOutIns" EntityType="Self.TimeOutIn" />
+          <EntitySet Name="TKDetails" EntityType="Self.TKDetail" />
+          <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="WorkingTaskHistories" EntityType="Self.WorkingTaskHistory" />
+          <EntitySet Name="WorkingTasks" EntityType="Self.WorkingTask" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PSNSPModelStoreContainer" CdmEntityContainer="PSNSPEntities">
+          <EntitySetMapping Name="AnnualLeaves">
+            <EntityTypeMapping TypeName="PSNSPModel.AnnualLeave">
+              <MappingFragment StoreEntitySet="AnnualLeave">
+                <ScalarProperty Name="LeaveID" ColumnName="LeaveID" />
+                <ScalarProperty Name="LeaveType" ColumnName="LeaveType" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnnualLeaveDetails">
+            <EntityTypeMapping TypeName="PSNSPModel.AnnualLeaveDetail">
+              <MappingFragment StoreEntitySet="AnnualLeaveDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="LeaveID" ColumnName="LeaveID" />
+                <ScalarProperty Name="LeaveAmt" ColumnName="LeaveAmt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CandidateInfoes">
+            <EntityTypeMapping TypeName="PSNSPModel.CandidateInfo">
+              <MappingFragment StoreEntitySet="CandidateInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="InfoType" ColumnName="InfoType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="PSNSPModel.Candidate">
+              <MappingFragment StoreEntitySet="Candidates">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="AppliedDate" ColumnName="AppliedDate" />
+                <ScalarProperty Name="AppliedBy" ColumnName="AppliedBy" />
+                <ScalarProperty Name="AppliedRef" ColumnName="AppliedRef" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="TimesOfInterview" ColumnName="TimesOfInterview" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommonCodes">
+            <EntityTypeMapping TypeName="PSNSPModel.CommonCode">
+              <MappingFragment StoreEntitySet="CommonCode">
+                <ScalarProperty Name="CommonTypeID" ColumnName="CommonTypeID" />
+                <ScalarProperty Name="CommonID" ColumnName="CommonID" />
+                <ScalarProperty Name="StrValue1" ColumnName="StrValue1" />
+                <ScalarProperty Name="StrValue2" ColumnName="StrValue2" />
+                <ScalarProperty Name="NumValue1" ColumnName="NumValue1" />
+                <ScalarProperty Name="NumValue2" ColumnName="NumValue2" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="NoteOfUsage" ColumnName="NoteOfUsage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommonTypes">
+            <EntityTypeMapping TypeName="PSNSPModel.CommonType">
+              <MappingFragment StoreEntitySet="CommonType">
+                <ScalarProperty Name="CommonTypeID" ColumnName="CommonTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AutoGenerateType" ColumnName="AutoGenerateType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyReports">
+            <EntityTypeMapping TypeName="PSNSPModel.DailyReport">
+              <MappingFragment StoreEntitySet="DailyReport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="DRType" ColumnName="DRType" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="AppPer" ColumnName="AppPer" />
+                <ScalarProperty Name="HRComment" ColumnName="HRComment" />
+                <ScalarProperty Name="HRCommentBy" ColumnName="HRCommentBy" />
+                <ScalarProperty Name="HRPer" ColumnName="HRPer" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DateOfReport" ColumnName="DateOfReport" />
+                <ScalarProperty Name="ApproveComplete" ColumnName="ApproveComplete" />
+                <ScalarProperty Name="HRCommentComplete" ColumnName="HRCommentComplete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DailyReportDetails">
+            <EntityTypeMapping TypeName="PSNSPModel.DailyReportDetail">
+              <MappingFragment StoreEntitySet="DailyReportDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DRId" ColumnName="DRId" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="WorkingHours" ColumnName="WorkingHours" />
+                <ScalarProperty Name="EstimateToFinish" ColumnName="EstimateToFinish" />
+                <ScalarProperty Name="PerOfComplete" ColumnName="PerOfComplete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentSamples">
+            <EntityTypeMapping TypeName="PSNSPModel.DocumentSample">
+              <MappingFragment StoreEntitySet="DocumentSample">
+                <ScalarProperty Name="DocumentCode" ColumnName="DocumentCode" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+                <ScalarProperty Name="SubmitedBy" ColumnName="SubmitedBy" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IssueDepartment" ColumnName="IssueDepartment" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DRFeedbacks">
+            <EntityTypeMapping TypeName="PSNSPModel.DRFeedback">
+              <MappingFragment StoreEntitySet="DRFeedback">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FBContent" ColumnName="FBContent" />
+                <ScalarProperty Name="RequiredHigher" ColumnName="RequiredHigher" />
+                <ScalarProperty Name="HigherUID" ColumnName="HigherUID" />
+                <ScalarProperty Name="RefPrevious" ColumnName="RefPrevious" />
+                <ScalarProperty Name="RefDRid" ColumnName="RefDRid" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="MarkComplete" ColumnName="MarkComplete" />
+                <ScalarProperty Name="MarkBy" ColumnName="MarkBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeInfoes">
+            <EntityTypeMapping TypeName="PSNSPModel.EmployeeInfo">
+              <MappingFragment StoreEntitySet="EmployeeInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="InfoType" ColumnName="InfoType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CanDownload" ColumnName="CanDownload" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="SelfEdit" ColumnName="SelfEdit" />
+                <ScalarProperty Name="IsHashed" ColumnName="IsHashed" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PSNSPModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DRFeedbackers" ColumnName="DRFeedbackers" />
+                <ScalarProperty Name="ReportTo" ColumnName="ReportTo" />
+                <ScalarProperty Name="HRTo" ColumnName="HRTo" />
+                <ScalarProperty Name="WorkingType" ColumnName="WorkingType" />
+                <ScalarProperty Name="ContractLink" ColumnName="ContractLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams">
+            <EntityTypeMapping TypeName="PSNSPModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamLibs">
+            <EntityTypeMapping TypeName="PSNSPModel.ExamLib">
+              <MappingFragment StoreEntitySet="ExamLib">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="QuestionURL" ColumnName="QuestionURL" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="AnswerURL" ColumnName="AnswerURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExamResults">
+            <EntityTypeMapping TypeName="PSNSPModel.ExamResult">
+              <MappingFragment StoreEntitySet="ExamResult">
+                <ScalarProperty Name="ExamLibID" ColumnName="ExamLibID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ResultURL" ColumnName="ResultURL" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="PSNSPModel.Holiday">
+              <MappingFragment StoreEntitySet="Holidays">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DayOfMonth" ColumnName="DayOfMonth" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TypeOfDay" ColumnName="TypeOfDay" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interviews">
+            <EntityTypeMapping TypeName="PSNSPModel.Interview">
+              <MappingFragment StoreEntitySet="Interview">
+                <ScalarProperty Name="InterviewID" ColumnName="InterviewID" />
+                <ScalarProperty Name="Interviewee" ColumnName="Interviewee" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PreID" ColumnName="PreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterviewInfoes">
+            <EntityTypeMapping TypeName="PSNSPModel.InterviewInfo">
+              <MappingFragment StoreEntitySet="InterviewInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="InterviewID" ColumnName="InterviewID" />
+                <ScalarProperty Name="InfoType" ColumnName="InfoType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveApplies">
+            <EntityTypeMapping TypeName="PSNSPModel.LeaveApply">
+              <MappingFragment StoreEntitySet="LeaveApply">
+                <ScalarProperty Name="ApplyID" ColumnName="ApplyID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ApplyType" ColumnName="ApplyType" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveApplyDetails">
+            <EntityTypeMapping TypeName="PSNSPModel.LeaveApplyDetail">
+              <MappingFragment StoreEntitySet="LeaveApplyDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ApplyID" ColumnName="ApplyID" />
+                <ScalarProperty Name="ApplyDetailType" ColumnName="ApplyDetailType" />
+                <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Links">
+            <EntityTypeMapping TypeName="PSNSPModel.Link">
+              <MappingFragment StoreEntitySet="Links">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="PSNSPModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="PSNSPModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Brief" ColumnName="Brief" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="NewsType" ColumnName="NewsType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="NewsBy" ColumnName="NewsBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="PSNSPModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Brief" ColumnName="Brief" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FromUID" ColumnName="FromUID" />
+                <ScalarProperty Name="ToUIDs" ColumnName="ToUIDs" />
+                <ScalarProperty Name="AffectURL" ColumnName="AffectURL" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationInfoes">
+            <EntityTypeMapping TypeName="PSNSPModel.NotificationInfo">
+              <MappingFragment StoreEntitySet="NotificationInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+                <ScalarProperty Name="SentMail" ColumnName="SentMail" />
+                <ScalarProperty Name="SentWhatsApp" ColumnName="SentWhatsApp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Objects">
+            <EntityTypeMapping TypeName="PSNSPModel.Object">
+              <MappingFragment StoreEntitySet="Objects">
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="ObjectGroup" ColumnName="ObjectGroup" />
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="PIDDate" ColumnName="PIDDate" />
+                <ScalarProperty Name="PIDIssue" ColumnName="PIDIssue" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="PoB" ColumnName="PoB" />
+                <ScalarProperty Name="PerAdd" ColumnName="PerAdd" />
+                <ScalarProperty Name="TemAdd" ColumnName="TemAdd" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="TKMID" ColumnName="TKMID" />
+                <ScalarProperty Name="WAID" ColumnName="WAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficialStatements">
+            <EntityTypeMapping TypeName="PSNSPModel.OfficialStatement">
+              <MappingFragment StoreEntitySet="OfficialStatement">
+                <ScalarProperty Name="StatementID" ColumnName="StatementID" />
+                <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="isPublic" ColumnName="isPublic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payrolls">
+            <EntityTypeMapping TypeName="PSNSPModel.Payroll">
+              <MappingFragment StoreEntitySet="Payroll">
+                <ScalarProperty Name="PayrollID" ColumnName="PayrollID" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="RefTK" ColumnName="RefTK" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="TotalHours" ColumnName="TotalHours" />
+                <ScalarProperty Name="TotalWorkingDays" ColumnName="TotalWorkingDays" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollEmployees">
+            <EntityTypeMapping TypeName="PSNSPModel.PayrollEmployee">
+              <MappingFragment StoreEntitySet="PayrollEmployee">
+                <ScalarProperty Name="PayrollID" ColumnName="PayrollID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="TotalAmt" ColumnName="TotalAmt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayrollEmployeeDetails">
+            <EntityTypeMapping TypeName="PSNSPModel.PayrollEmployeeDetail">
+              <MappingFragment StoreEntitySet="PayrollEmployeeDetail">
+                <ScalarProperty Name="PayrollID" ColumnName="PayrollID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="PayType" ColumnName="PayType" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PayAmt" ColumnName="PayAmt" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Negative" ColumnName="Negative" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeopleSkills">
+            <EntityTypeMapping TypeName="PSNSPModel.PeopleSkill">
+              <MappingFragment StoreEntitySet="PeopleSkills">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SkillSetID" ColumnName="SkillSetID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="SeftEvaluate" ColumnName="SeftEvaluate" />
+                <ScalarProperty Name="YearOfExperience" ColumnName="YearOfExperience" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="PSNSPModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobLevel" ColumnName="JobLevel" />
+                <ScalarProperty Name="JobRequirement" ColumnName="JobRequirement" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+                <ScalarProperty Name="WorkLocation" ColumnName="WorkLocation" />
+                <ScalarProperty Name="SalaryType" ColumnName="SalaryType" />
+                <ScalarProperty Name="PreferLang" ColumnName="PreferLang" />
+                <ScalarProperty Name="PositionType" ColumnName="PositionType" />
+                <ScalarProperty Name="ManageGroup" ColumnName="ManageGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PositionInfoes">
+            <EntityTypeMapping TypeName="PSNSPModel.PositionInfo">
+              <MappingFragment StoreEntitySet="PositionInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="InfoType" ColumnName="InfoType" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Punishments">
+            <EntityTypeMapping TypeName="PSNSPModel.Punishment">
+              <MappingFragment StoreEntitySet="Punishment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="PunishType" ColumnName="PunishType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModidfiedBy" ColumnName="ModidfiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="RefStatement" ColumnName="RefStatement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QAs">
+            <EntityTypeMapping TypeName="PSNSPModel.QA">
+              <MappingFragment StoreEntitySet="QA">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="AskedBy" ColumnName="AskedBy" />
+                <ScalarProperty Name="AskedDate" ColumnName="AskedDate" />
+                <ScalarProperty Name="AnsweredBy" ColumnName="AnsweredBy" />
+                <ScalarProperty Name="AnsweredDate" ColumnName="AnsweredDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Highlight" ColumnName="Highlight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="PSNSPModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="RequestBy" ColumnName="RequestBy" />
+                <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="RequestTo" ColumnName="RequestTo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="PSNSPModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiledBy" ColumnName="ModifiledBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role_Menu_Module">
+            <EntityTypeMapping TypeName="PSNSPModel.Role_Menu_Module">
+              <MappingFragment StoreEntitySet="Role_Menu_Module">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ObjectUDAffect" ColumnName="ObjectUDAffect" />
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+                <ScalarProperty Name="AllowNew" ColumnName="AllowNew" />
+                <ScalarProperty Name="AllowEdit" ColumnName="AllowEdit" />
+                <ScalarProperty Name="AllowDelete" ColumnName="AllowDelete" />
+                <ScalarProperty Name="AllowView" ColumnName="AllowView" />
+                <ScalarProperty Name="AllowPrint" ColumnName="AllowPrint" />
+                <ScalarProperty Name="AllowDownload" ColumnName="AllowDownload" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkillSets">
+            <EntityTypeMapping TypeName="PSNSPModel.SkillSet">
+              <MappingFragment StoreEntitySet="SkillSets">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="RefURL" ColumnName="RefURL" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="PSNSPModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PSNSPModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeKeepings">
+            <EntityTypeMapping TypeName="PSNSPModel.TimeKeeping">
+              <MappingFragment StoreEntitySet="TimeKeeping">
+                <ScalarProperty Name="TimeKeepID" ColumnName="TimeKeepID" />
+                <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+                <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeOutIns">
+            <EntityTypeMapping TypeName="PSNSPModel.TimeOutIn">
+              <MappingFragment StoreEntitySet="TimeOutIn">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="StampTime" ColumnName="StampTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longtitude" ColumnName="Longtitude" />
+                <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TKDetails">
+            <EntityTypeMapping TypeName="PSNSPModel.TKDetail">
+              <MappingFragment StoreEntitySet="TKDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TimeKeepID" ColumnName="TimeKeepID" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="DayOfMonth" ColumnName="DayOfMonth" />
+                <ScalarProperty Name="TotalHour" ColumnName="TotalHour" />
+                <ScalarProperty Name="TypeOfDay" ColumnName="TypeOfDay" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RefID" ColumnName="RefID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogs">
+            <EntityTypeMapping TypeName="PSNSPModel.UserLog">
+              <MappingFragment StoreEntitySet="UserLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Objects" ColumnName="Objects" />
+                <ScalarProperty Name="ContentBefore" ColumnName="ContentBefore" />
+                <ScalarProperty Name="ContentAfter" ColumnName="ContentAfter" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PSNSPModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ManageGroup" ColumnName="ManageGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkingTaskHistories">
+            <EntityTypeMapping TypeName="PSNSPModel.WorkingTaskHistory">
+              <MappingFragment StoreEntitySet="WorkingTaskHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkingTasks">
+            <EntityTypeMapping TypeName="PSNSPModel.WorkingTask">
+              <MappingFragment StoreEntitySet="WorkingTasks">
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+                <ScalarProperty Name="TechLevel" ColumnName="TechLevel" />
+                <ScalarProperty Name="LangLevel" ColumnName="LangLevel" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TaskType" ColumnName="TaskType" />
+                <ScalarProperty Name="TaskURL" ColumnName="TaskURL" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PreviousTask" ColumnName="PreviousTask" />
+                <ScalarProperty Name="NextTask" ColumnName="NextTask" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
