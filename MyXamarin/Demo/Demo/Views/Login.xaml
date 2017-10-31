@@ -1,17 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Demo.ViewModels"
              x:Class="Demo.Views.Login">
+    <ContentView.BindingContext>
+        <vm:UserVM/>
+    </ContentView.BindingContext>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="LOGIN" FontSize="25" TextColor="#0CA809" HorizontalTextAlignment="Center"/>
-            <Entry WidthRequest="200"
+            <Label Text="{Binding Title}"
+                   FontSize="25" 
+                   TextColor="#0CA809" 
+                   HorizontalTextAlignment="Center" />
+            <Entry Text="{Binding Model.User}" 
+                   WidthRequest="200"
                    Placeholder="Username" >
             </Entry>
-            <Entry WidthRequest="200"
+            <Entry Text="{Binding Model.Pass}"
+                   IsPassword="True"
+                   WidthRequest="200"
                    Placeholder="Password">
             </Entry>
-            <Button Text="Login" BackgroundColor="#CC0000"></Button>
+            <Button Text="Login" 
+                    BackgroundColor="#CC0000" 
+                    Command="{Binding LogInCommand}">
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,27 +1,4 @@
-﻿#region Information
-/*
- * Author       : Zng Tfy
- * Email        : nvt87x@gmail.com
- * Phone        : +84 1645 515 010
- * ------------------------------- *
- * Create       : 27/10/2017 08:58
- * Update       : 27/10/2017 08:58
- * Checklist    : 1.0
- * Status       : OK
- */
-#region License
-/**************************************************************************************************************
- * Copyright © 2012-2017 SKG™ all rights reserved
- **************************************************************************************************************/
-#endregion
-#region Description
-/**************************************************************************************************************
- * Base view model
- **************************************************************************************************************/
-#endregion
-#endregion
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -29,16 +6,18 @@ using Xamarin.Forms;
 
 namespace Demo.ViewModels
 {
-    using Models;
     using Services;
 
     /// <summary>
     /// Base view model
     /// </summary>
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseVM : INotifyPropertyChanged
     {
         #region -- Implements --
 
+        /// <summary>
+        /// Event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
@@ -89,11 +68,9 @@ namespace Demo.ViewModels
         #region -- Properties --
 
         /// <summary>
-        /// Data store
+        /// User service
         /// </summary>
-        public IDataStore<Item> DataStore =>
-            DependencyService.Get<IDataStore<Item>>()
-            ?? new UserDataStore();
+        public UserService UserService => DependencyService.Get<UserService>() ?? new UserService();
 
         /// <summary>
         /// Busy
