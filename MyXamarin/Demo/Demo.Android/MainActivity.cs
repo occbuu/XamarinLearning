@@ -19,10 +19,11 @@ namespace Demo.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             DependencyService.Register<ToastNotification>(); // Register your dependency
-            ToastNotification.Init(this);
-
             // If you are using Android you must pass through the activity
-            ToastNotification.Init(this);
+            ToastNotification.Init(this, new PlatformOptions()
+            {
+                SmallIconDrawable = Android.Resource.Drawable.IcDialogMap
+            });
             LoadApplication(new App());
         }
     }

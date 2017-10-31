@@ -8,7 +8,7 @@ namespace Demo
         {
             InitializeComponent();
 
-            MainPage = new Views.Profile();
+            MainPage = new Views.Menu();
         }
 
         protected override void OnStart()

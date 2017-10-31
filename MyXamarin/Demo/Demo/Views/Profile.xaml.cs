@@ -1,15 +1,11 @@
-﻿using Plugin.Toasts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using System;
 
 namespace Demo.Views
 {
+    using Xamarin.Forms;
+    using Xamarin.Forms.Xaml;
+    using Plugin.Toasts;
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile : ContentPage
     {
@@ -25,9 +21,12 @@ namespace Demo.Views
             var options = new NotificationOptions()
             {
                 Title = "Hello",
-                Description = "I'm Van !!!"
+                Description = "I'm Van !!!",
+                WindowsOptions = new WindowsOptions()
+                {
+                    LogoUri ="avatar.png"
+                }
             };
-
             var result = await notificator.Notify(options);
         }
     }
