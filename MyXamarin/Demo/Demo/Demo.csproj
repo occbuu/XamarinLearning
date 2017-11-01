@@ -42,8 +42,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\ObjectModel.cs" />
     <Compile Include="Models\TimeOutInModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
