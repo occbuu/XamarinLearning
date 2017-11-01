@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="160" />
+                <RowDefinition Height="90" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Margin="20,0,20,0">
