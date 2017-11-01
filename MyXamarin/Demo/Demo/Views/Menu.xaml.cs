@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,6 +25,16 @@ namespace Demo.Views
         private void Brightness_Clicked(object sender, EventArgs e)
         {
             Detail = new Brightness();
+        }
+
+        private void GetDevice_Clicked(object sender, EventArgs e)
+        {
+            Detail = new GetDevice();
+        }
+
+        private void GetMyPosition_Clicked(object sender, EventArgs e)
+        {
+            Detail = new GetMyPosition();
         }
     }
 }

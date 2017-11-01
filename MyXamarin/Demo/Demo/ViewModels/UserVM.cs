@@ -2,11 +2,11 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Plugin.Toasts;
 
 namespace Demo.ViewModels
 {
     using Models;
-    using Plugin.Toasts;
 
     /// <summary>
     /// User view model
@@ -41,6 +41,7 @@ namespace Demo.ViewModels
                 if (m.Success)
                 {
                     await App.Current.MainPage.DisplayAlert("Notification", "Login Success", "OK");
+                    await App.Current.MainPage.Navigation.PushModalAsync(new Views.GetMyPosition());
                     //TODO - Set Pagiantion
                 }
                 else

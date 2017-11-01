@@ -9,6 +9,8 @@
                 <Button Text="Login" Clicked="Login_Clicked"/>
                 <Button Text="Profile" Clicked="Profile_Clicked"/>
                 <Button Text="Brightness" Clicked="Brightness_Clicked"/>
+                <Button Text="GetDevice" Clicked="GetDevice_Clicked"/>
+                <Button Text="GetMyPosition" Clicked="GetMyPosition_Clicked"/>
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>
