@@ -31,6 +31,9 @@ namespace Demo.ViewModels
 
             m = new MainMenuModel { Id = 4, Title = "Get Device", TargetType = typeof(GetDevice) };
             Models.Add(m);
+
+            m = new MainMenuModel { Id = 5, Title = "Check In, Out", TargetType = typeof(CheckINOUT) };
+            Models.Add(m);
         }
 
         #endregion

@@ -1,4 +1,6 @@
-﻿using Plugin.Geolocator;
+﻿using Demo.Helper;
+using Plugin.Geolocator;
+using Plugin.Permissions.Abstractions;
 using System;
 
 using Xamarin.Forms;
@@ -17,12 +19,22 @@ namespace Demo.Views
 
         private async void GetPositionClicked(object sender, EventArgs e)
         {
+            var hasPermission = await Utils.CheckPermissions(Permission.Location);
+            if (!hasPermission)
+            {
+                return;
+            }
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            var postion = await locator.GetPositionAsync();
+            var postion = await locator.GetLastKnownLocationAsync();
+            //var postion = await locator.GetPositionAsync();
+
+            var address = await locator.GetAddressesForPositionAsync(postion);
+
             ////  MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(postion.Latitude, postion.Longitude), Distance.FromMeters(1)));
 
+            var a = address;
 
             var longitude = postion.Longitude.ToString().Replace(",", ".");
             var latitude = postion.Latitude.ToString().Replace(",", ".");
