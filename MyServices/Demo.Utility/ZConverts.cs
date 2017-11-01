@@ -20,7 +20,7 @@ namespace Demo.Utility
         /// <typeparam name="T">Class type</typeparam>
         /// <param name="prefix">Prefix of key</param>
         /// <returns>Return the result</returns>
-        public static T Xingleton<T>(string prefix = "")
+        public static T Xingleton<T>(string prefix = SpecialString.Blank)
         {
             var k = prefix + typeof(T).Name;
 

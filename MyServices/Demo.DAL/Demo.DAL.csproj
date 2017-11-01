@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FDDDBE3D-C92A-4995-9CAE-84C4E6BA97BB}</ProjectGuid>
+    <ProjectGuid>{04D6B4FD-5B67-494F-9F0E-285177BF7570}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo.DAL</RootNamespace>
@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -49,205 +49,203 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRepository.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="DBContext\AnnualLeave.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\AnnualLeaveDetail.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Candidate.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\CandidateInfo.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\CommonCode.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\CommonType.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\DailyReport.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\DailyReportDetail.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBContext\DemoModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DemoModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBContext\DemoModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DemoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBContext\DemoModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DemoModel.edmx</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\DocumentSample.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\DRFeedback.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Employee.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\EmployeeInfo.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Exam.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\ExamLib.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\ExamResult.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Holiday.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Interview.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\InterviewInfo.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\LeaveApply.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\LeaveApplyDetail.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Link.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Module.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\News.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Notification.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\NotificationInfo.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Object.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\OfficialStatement.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Payroll.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\PayrollEmployee.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\PayrollEmployeeDetail.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\PeopleSkill.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Position.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\PositionInfo.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\PSNSP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSNSP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\PSNSP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSNSP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\PSNSP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSNSP.edmx</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Punishment.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\QA.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Request.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Role.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Role_Menu_Module.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\SkillSet.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Subject.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\sysdiagram.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\TimeKeeping.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\TimeOutIn.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\TKDetail.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\User.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\UserLog.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\WorkingTask.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\WorkingTaskHistory.cs">
-      <DependentUpon>DemoModel.tt</DependentUpon>
+      <DependentUpon>PSNSP.tt</DependentUpon>
     </Compile>
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeOutInDao.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="ObjectDao.cs" />
+    <Compile Include="TimeOutInDao.cs" />
     <Compile Include="UserDao.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DBContext\DemoModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DemoModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <ProjectReference Include="..\Demo.Utility\Demo.Utility.csproj">
+      <Project>{d01923a1-1fde-4c7e-89ff-5e79bfcd39e7}</Project>
+      <Name>Demo.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="DBContext\DemoModel.edmx.diagram">
-      <DependentUpon>DemoModel.edmx</DependentUpon>
+    <None Include="App.config" />
+    <EntityDeploy Include="DBContext\PSNSP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PSNSP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DBContext\PSNSP.edmx.diagram">
+      <DependentUpon>PSNSP.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBContext\DemoModel.Context.tt">
+    <Content Include="DBContext\PSNSP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DemoModel.Context.cs</LastGenOutput>
-      <DependentUpon>DemoModel.edmx</DependentUpon>
+      <DependentUpon>PSNSP.edmx</DependentUpon>
+      <LastGenOutput>PSNSP.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DBContext\DemoModel.tt">
+    <Content Include="DBContext\PSNSP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DemoModel.edmx</DependentUpon>
-      <LastGenOutput>DemoModel.cs</LastGenOutput>
+      <DependentUpon>PSNSP.edmx</DependentUpon>
+      <LastGenOutput>PSNSP.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Demo.Utility\Demo.Utility.csproj">
-      <Project>{3bac83e9-f2b4-4a42-87c6-d1bd6b52cfe3}</Project>
-      <Name>Demo.Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

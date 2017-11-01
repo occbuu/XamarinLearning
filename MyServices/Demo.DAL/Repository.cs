@@ -15,7 +15,7 @@ namespace Demo.DAL
     /// Repository Data Access Layer (DAL)
     /// </summary>
     /// <typeparam name="T">Class entity type</typeparam>
-    public class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
         #region -- Implement --
 

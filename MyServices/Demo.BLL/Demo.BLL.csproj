@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0CDD27B-2256-4636-B86F-0C2C6C363E60}</ProjectGuid>
+    <ProjectGuid>{9CC4F1A2-A24B-460B-9527-2AC9C5A6BA9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo.BLL</RootNamespace>
@@ -41,19 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeOutInService.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="ObjectService.cs" />
+    <Compile Include="TimeOutInService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Demo.DAL\Demo.DAL.csproj">
-      <Project>{fdddbe3d-c92a-4995-9cae-84c4e6ba97bb}</Project>
+      <Project>{04d6b4fd-5b67-494f-9f0e-285177bf7570}</Project>
       <Name>Demo.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Demo.Utility\Demo.Utility.csproj">
-      <Project>{3bac83e9-f2b4-4a42-87c6-d1bd6b52cfe3}</Project>
+      <Project>{d01923a1-1fde-4c7e-89ff-5e79bfcd39e7}</Project>
       <Name>Demo.Utility</Name>
     </ProjectReference>
   </ItemGroup>

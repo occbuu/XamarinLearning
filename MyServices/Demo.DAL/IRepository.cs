@@ -10,6 +10,8 @@ namespace Demo.DAL
     /// <typeparam name="T">Class entity type</typeparam>
     public interface IRepository<T>
     {
+        #region -- Methods --
+
         /// <summary>
         /// Get by Id
         /// </summary>
@@ -41,5 +43,7 @@ namespace Demo.DAL
         /// <param name="predicate">Predicate</param>
         /// <returns>Return the result</returns>
         IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate);
+
+        #endregion
     }
 }

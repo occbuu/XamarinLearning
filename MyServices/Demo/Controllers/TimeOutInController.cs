@@ -11,11 +11,13 @@ namespace Demo.Controllers
     /// <summary>
     /// TimeOutIn controller
     /// </summary>
+    [Authorize]
+    [RoutePrefix("api/TimeOutIn")]
     public class TimeOutInController : BaseController
     {
         #region -- Methods --
 
-        /* api/TimeOutIn/CheckOutIn
+        /*
             {
               "ObjectID": "99151121000001",
               "StampTime": "2015-07-20 19:20:00",
@@ -27,6 +29,12 @@ namespace Demo.Controllers
               "Address": "109/26 Bến Vân Đồn, phường 8, Quận 4, Hồ Chí Minh, Việt Nam",
             }
         */
+        /// <summary>
+        /// Check out or in
+        /// POST api/TimeOutIn/CheckOutIn
+        /// </summary>
+        /// <returns>Return the result</returns>
+        [Route("CheckOutIn")]
         [HttpPost]
         public HttpResponseMessage CheckOutIn(JObject jsonData)
         {

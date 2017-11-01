@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BAC83E9-F2B4-4A42-87C6-D1BD6B52CFE3}</ProjectGuid>
+    <ProjectGuid>{D01923A1-1FDE-4C7E-89FF-5E79BFCD39E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo.Utility</RootNamespace>
@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ZConstant.cs" />
-    <Compile Include="ZConverts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZConverts.cs" />
     <Compile Include="ZEnums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,16 @@ namespace Demo.Models
         #region -- Properties --
 
         /// <summary>
+        /// Object ID
+        /// </summary>
+        public string ObjectID { get; set; }
+
+        /// <summary>
+        /// Image base 64
+        /// </summary>
+        public string Image64 { get; set; }
+
+        /// <summary>
         /// URL
         /// </summary>
         public string URL { get; set; }

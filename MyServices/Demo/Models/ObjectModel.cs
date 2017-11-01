@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 
 namespace Demo.Models
 {
@@ -7,33 +6,6 @@ namespace Demo.Models
     /// Object model
     /// </summary>
     public class ObjectModel : BaseModel
-    {
-        #region -- Methods --
-
-        /// <summary>
-        /// Initialize
-        /// </summary>
-        public ObjectModel()
-        {
-            Data = new ObservableCollection<ObjectData>();
-        }
-
-        #endregion
-
-        #region -- Properties --
-
-        /// <summary>
-        /// Data
-        /// </summary>
-        public ObservableCollection<ObjectData> Data { get; set; }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// Object data
-    /// </summary>
-    public class ObjectData
     {
         #region -- Properties --
 
