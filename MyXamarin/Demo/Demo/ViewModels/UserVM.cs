@@ -41,8 +41,7 @@ namespace Demo.ViewModels
                 if (m.Success)
                 {
                     await App.Current.MainPage.DisplayAlert("Notification", "Login Success", "OK");
-                    await App.Current.MainPage.Navigation.PushModalAsync(new Views.GetMyPosition());
-                    //TODO - Set Pagiantion
+                    await App.Current.MainPage.Navigation.PushModalAsync(new Views.Profile());
                 }
                 else
                 {

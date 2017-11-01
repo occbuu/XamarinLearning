@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo.ViewModels
 {
-    public class ProfileViewModel
+    public class ProfileVM
     {
     }
 }

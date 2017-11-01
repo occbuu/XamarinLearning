@@ -1,6 +1,6 @@
 ﻿namespace Demo.Models
 {
-    class Login
+    class LoginModel
     {
         #region -- Properties --
 
