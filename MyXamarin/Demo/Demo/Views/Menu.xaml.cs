@@ -26,5 +26,10 @@ namespace Demo.Views
         {
             Detail = new Profile();
         }
+
+        private void Brightness_Clicked(object sender, EventArgs e)
+        {
+            Detail = new Brightness();
+        }
     }
 }

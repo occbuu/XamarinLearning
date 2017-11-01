@@ -6,6 +6,7 @@ using Xamarin.Forms;
 namespace Demo.ViewModels
 {
     using Models;
+    using Plugin.Toasts;
 
     /// <summary>
     /// User view model
@@ -39,12 +40,19 @@ namespace Demo.ViewModels
                 var m = await UserService.LogInAsync(Model.User, Model.Pass);
                 if (m.Success)
                 {
-                    //TODO - Log in successful
+                    await App.Current.MainPage.DisplayAlert("Notification", "Login Success", "OK");
+                    //TODO - Set Pagiantion
                 }
                 else
                 {
-                    //TODO - Log in failed
+                    var notificator = DependencyService.Get<IToastNotificator>();
                     var x = m.ErrMsg;
+                    var options = new NotificationOptions()
+                    {
+                        Title = "Error",
+                        Description = x
+                    };
+                    var result = await notificator.Notify(options);
                 }
 
             }

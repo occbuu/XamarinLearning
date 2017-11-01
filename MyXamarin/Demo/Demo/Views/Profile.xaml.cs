@@ -22,10 +22,6 @@ namespace Demo.Views
             {
                 Title = "Hello",
                 Description = "I'm Van !!!",
-                WindowsOptions = new WindowsOptions()
-                {
-                    LogoUri ="avatar.png"
-                }
             };
             var result = await notificator.Notify(options);
         }

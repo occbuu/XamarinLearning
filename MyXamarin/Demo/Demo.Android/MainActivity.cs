@@ -22,7 +22,7 @@ namespace Demo.Droid
             // If you are using Android you must pass through the activity
             ToastNotification.Init(this, new PlatformOptions()
             {
-                SmallIconDrawable = Android.Resource.Drawable.IcDialogMap
+                SmallIconDrawable = Android.Resource.Drawable.IcDialogEmail
             });
             LoadApplication(new App());
         }
