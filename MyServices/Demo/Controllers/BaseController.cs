@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Configuration;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
@@ -22,6 +24,29 @@ namespace Demo.Controllers
         protected HttpResponseMessage Response(object data)
         {
             return Request.CreateResponse(HttpStatusCode.OK, data);
+        }
+
+        /// <summary>
+        /// Get path image with folder
+        /// </summary>
+        /// <param name="key">Image type</param>
+        /// <returns>Return the result</returns>
+        protected string GetPathImage(AppSettings key)
+        {
+            var res = GetAppSetting(AppSettings.ImagePath);
+            res += GetAppSetting(key);
+            return res;
+        }
+
+        /// <summary>
+        /// Get AppSetting from Web.config
+        /// </summary>
+        /// <param name="key">Enum key</param>
+        /// <returns>Return the result</returns>
+        protected string GetAppSetting(Enum key)
+        {
+            var res = ConfigurationManager.AppSettings[key.ToString()];
+            return res;
         }
 
         #endregion
