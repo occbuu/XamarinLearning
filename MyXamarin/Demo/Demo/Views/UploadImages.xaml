@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.UploadImages">
+    <ContentPage.Content>
+            <StackLayout Spacing="10" Padding="10">
+                <Label Text="This image upload file"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Image Source="~/Project_Demo/DuAn/MyXamarin/Demo/Demo/Images/doggril.jpg"></Image>
+
+                <Button x:Name="takePhoto" Text="Take Photo" Clicked="TakePhoto_Clicked"/>
+                <Button x:Name="pickPhoto" Text="Pick Photo" Clicked="PickPhoto_Clicked"/>
+            <Button x:Name="takeVideo" Text="Take Video" Clicked="TakeVideo_Clicked"/>
+            <Button x:Name="pickVideo" Text="Pick Video" Clicked="PickVideo_Clicked"/>
+                <Button Text="Upload" Clicked="Upload_Clicked"/>
+                <Label x:Name="LblPath"></Label>
+                <Image x:Name="image" WidthRequest="100" HeightRequest="120"/>
+                <Label x:Name="LblRemotePath"></Label>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

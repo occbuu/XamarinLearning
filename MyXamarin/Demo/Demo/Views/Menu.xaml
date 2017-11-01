@@ -11,6 +11,7 @@
                 <Button Text="Brightness" Clicked="Brightness_Clicked"/>
                 <Button Text="GetDevice" Clicked="GetDevice_Clicked"/>
                 <Button Text="GetMyPosition" Clicked="GetMyPosition_Clicked"/>
+                <Button Text="UploadImage" Clicked="UploadImage_Clicked"/>
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

@@ -36,5 +36,10 @@ namespace Demo.Views
         {
             Detail = new GetMyPosition();
         }
+
+        private void UploadImage_Clicked(object sender, EventArgs e)
+        {
+            Detail = new UploadImages();
+        }
     }
 }
