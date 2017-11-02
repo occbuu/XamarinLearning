@@ -14,7 +14,7 @@ namespace Demo.Models
         /// </summary>
         public MenuModel()
         {
-            //TargetType = typeof(MenuDetail);
+            TargetType = typeof(MenuDetail);
         }
 
         #endregion

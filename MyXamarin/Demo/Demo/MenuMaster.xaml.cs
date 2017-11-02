@@ -1,24 +1,33 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Demo.Views
+namespace Demo
 {
+    using ViewModels;
+
     /// <summary>
-    /// Login
+    /// Menu master
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : ContentPage
+    public partial class MenuMaster : ContentPage
     {
         #region -- Methods --
 
         /// <summary>
         /// Initialize
         /// </summary>
-        public Login()
+        public MenuMaster()
         {
             InitializeComponent();
-            Title = "Login";
+            BindingContext = new MenuVM();
+            ListView = MenuItemsListView;
         }
+
+        #endregion
+
+        #region -- Properties --
+
+        public ListView ListView { get; set; }
 
         #endregion
     }

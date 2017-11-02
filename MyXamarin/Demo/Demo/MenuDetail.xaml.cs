@@ -1,18 +1,20 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Demo
 {
     /// <summary>
-    /// Main page
+    /// Menu detail
     /// </summary>
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MenuDetail : ContentPage
     {
         #region -- Methods --
 
         /// <summary>
         /// Initialize
         /// </summary>
-        public MainPage()
+        public MenuDetail()
         {
             InitializeComponent();
         }

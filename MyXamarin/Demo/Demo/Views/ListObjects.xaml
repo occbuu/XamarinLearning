@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.ListObjects">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ObjectListView"
+                      ItemsSource="{Binding Models}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="True"
+                      RefreshCommand="{Binding LoadCommand}"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding ObjectID}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                <Label Text="{Binding FullName}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                <Label Text="{Binding PID}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16"/>
+                                <Label Text="{Binding PIDDate}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding PIDIssue}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding DoB}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding PoB}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding DoB}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding PerAdd}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding TemAdd}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding Gender}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                <Label Text="{Binding Tel}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="16"/>
+                                <Label Text="{Binding Email}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

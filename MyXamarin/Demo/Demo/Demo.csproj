@@ -43,6 +43,15 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuDetail.xaml.cs">
+      <DependentUpon>MenuDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuMaster.xaml.cs">
+      <DependentUpon>MenuMaster.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\Item.cs" />
@@ -81,6 +90,9 @@
     <Compile Include="Views\GetMyPosition.xaml.cs">
       <DependentUpon>GetMyPosition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListObjects.xaml.cs">
+      <DependentUpon>ListObjects.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -101,6 +113,9 @@
     </Compile>
     <Compile Include="Views\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UploadImages.xaml.cs">
       <DependentUpon>UploadImages.xaml</DependentUpon>
@@ -237,6 +252,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Message.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ListObjects.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Register.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Menu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuMaster.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

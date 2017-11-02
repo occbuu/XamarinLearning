@@ -20,10 +20,10 @@ namespace Demo.ViewModels
             Title = "Main menu";
             Models = new ObservableCollection<MenuModel>();
 
-            //var m = new MenuModel { Id = 0, Title = "Register", TargetType = typeof(Register) };
-            //Models.Add(m);
+            var m = new MenuModel { Id = 0, Title = "Register", TargetType = typeof(Register) };
+            Models.Add(m);
 
-            var m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
+            m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Profile" };
@@ -32,8 +32,8 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Main page", TargetType = typeof(MainPage) };
             Models.Add(m);
 
-            //m = new MenuModel { Id = 0, Title = "List objects", TargetType = typeof(ListObjects) };
-            //Models.Add(m);
+            m = new MenuModel { Id = 0, Title = "List objects", TargetType = typeof(ListObjects) };
+            Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Log out" };
             Models.Add(m);
