@@ -1,14 +1,14 @@
-﻿using Demo.Helper;
-using Plugin.Geolocator;
+﻿using Plugin.Geolocator;
 using Plugin.Permissions.Abstractions;
 using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
+    using Demo.Helpers;
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GetMyPosition : ContentPage
     {

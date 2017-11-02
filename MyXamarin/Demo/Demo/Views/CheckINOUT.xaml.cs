@@ -1,5 +1,4 @@
-﻿using Demo.Helper;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Plugin.DeviceInfo;
 using Plugin.Geolocator;
 using Plugin.Permissions.Abstractions;
@@ -12,6 +11,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
+    using Helpers;
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckINOUT : ContentPage
     {
@@ -87,7 +88,6 @@ namespace Demo.Views
             }
         }
 
-
         private async void CheckOUT_Clicked(object sender, EventArgs e)
         {
             var hasPermission = await Utils.CheckPermissions(Permission.Location);
@@ -105,8 +105,6 @@ namespace Demo.Views
                 var position = await locator.GetLastKnownLocationAsync();
                 var longitude = position.Longitude.ToString().Replace(",", ".");
                 var latitude = position.Latitude.ToString().Replace(",", ".");
-
-
 
                 var address = await locator.GetAddressesForPositionAsync(position);
                 var add = address.FirstOrDefault();

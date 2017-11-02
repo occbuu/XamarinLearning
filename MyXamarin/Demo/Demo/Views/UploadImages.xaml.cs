@@ -166,7 +166,7 @@ namespace Demo.Views
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakeVideoSupported)
             {
-                DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
                 return;
             }
 
@@ -178,7 +178,7 @@ namespace Demo.Views
 
             if (_mediaFile == null)
             { return; }
-            DisplayAlert("Video Recorded", "Location: " + _mediaFile.Path, "OK");
+            await DisplayAlert("Video Recorded", "Location: " + _mediaFile.Path, "OK");
 
             //file.Dispose();
         }
@@ -187,7 +187,7 @@ namespace Demo.Views
         {
             if (!CrossMedia.Current.IsPickVideoSupported)
             {
-                DisplayAlert("Videos Not Supported", ":( Permission not granted to videos.", "OK");
+                await DisplayAlert("Videos Not Supported", ":( Permission not granted to videos.", "OK");
                 return;
             }
             _mediaFile = await CrossMedia.Current.PickVideoAsync();
@@ -195,7 +195,7 @@ namespace Demo.Views
             if (_mediaFile == null)
                 return;
 
-            DisplayAlert("Video Selected", "Location: " + _mediaFile.Path, "OK");
+            await DisplayAlert("Video Selected", "Location: " + _mediaFile.Path, "OK");
             //file.Dispose();
         }
 

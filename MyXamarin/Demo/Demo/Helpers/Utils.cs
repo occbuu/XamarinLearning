@@ -3,7 +3,7 @@ using Plugin.Permissions.Abstractions;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Demo.Helper
+namespace Demo.Helpers
 {
     public static class Utils
     {
