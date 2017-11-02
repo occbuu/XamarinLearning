@@ -5,6 +5,15 @@
     /// </summary>
     public class BaseModel
     {
+        #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public BaseModel() { }
+
+        #endregion
+
         #region -- Properties --
 
         /// <summary>

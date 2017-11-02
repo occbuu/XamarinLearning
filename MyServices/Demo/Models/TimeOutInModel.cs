@@ -7,6 +7,15 @@ namespace Demo.Models
     /// </summary>
     public class TimeOutInModel : BaseModel
     {
+        #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public TimeOutInModel() { }
+
+        #endregion
+
         #region -- Properties --
 
         /// <summary>

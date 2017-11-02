@@ -7,6 +7,15 @@ namespace Demo.Models
     /// </summary>
     public class FileModel : BaseModel
     {
+        #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public FileModel() { }
+
+        #endregion
+
         #region -- Properties --
 
         /// <summary>

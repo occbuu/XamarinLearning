@@ -7,6 +7,15 @@ namespace Demo.Models
     /// </summary>
     public class ObjectModel : BaseModel
     {
+        #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public ObjectModel() { }
+
+        #endregion
+
         #region -- Properties --
 
         /// <summary>
@@ -58,6 +67,16 @@ namespace Demo.Models
         /// Gender
         /// </summary>
         public bool? Gender { get; set; }
+
+        /// <summary>
+        /// Telephone
+        /// </summary>
+        public string Tel { get; set; }
+
+        /// <summary>
+        /// Email
+        /// </summary>
+        public string Email { get; set; }
 
         #endregion
     }

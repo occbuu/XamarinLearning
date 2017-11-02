@@ -37,7 +37,9 @@ namespace Demo.Controllers
                     PoB = p.PoB,
                     PerAdd = p.PerAdd,
                     TemAdd = p.TemAdd,
-                    Gender = p.Gender
+                    Gender = p.Gender,
+                    Tel = p.Tel,
+                    Email = p.Email
                 }).ToList();
 
             return res;
