@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Plugin.Toasts;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Plugin.Toasts;
 
 namespace Demo.ViewModels
 {
@@ -37,7 +37,8 @@ namespace Demo.ViewModels
 
             try
             {
-                var m = await UserService.LogInAsync(Model.User, Model.Pass);
+                // var m = await UserService.LogInAsync(Model.User, Model.Pass);
+                var m = new UserModel();
                 if (m.Success)
                 {
                     await App.Current.MainPage.DisplayAlert("Notification", "Login Success", "OK");

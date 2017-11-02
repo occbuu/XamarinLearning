@@ -25,6 +25,11 @@ namespace Demo.ViewModels
         #region -- Methods --
 
         /// <summary>
+        /// Initialize
+        /// </summary>
+        public BaseVM() { }
+
+        /// <summary>
         /// On property changed
         /// </summary>
         /// <param name="propertyName">Property name</param>
@@ -68,9 +73,14 @@ namespace Demo.ViewModels
         #region -- Properties --
 
         /// <summary>
-        /// User service
+        /// Account service
         /// </summary>
-        public UserService UserService => DependencyService.Get<UserService>() ?? new UserService();
+        public AccountService AccountService => DependencyService.Get<AccountService>() ?? new AccountService();
+
+        /// <summary>
+        /// Object service
+        /// </summary>
+        public ObjectService ObjectService => DependencyService.Get<ObjectService>() ?? new ObjectService();
 
         /// <summary>
         /// Busy
@@ -97,12 +107,12 @@ namespace Demo.ViewModels
         /// <summary>
         /// Busy
         /// </summary>
-        private bool _isBusy = false;
+        private bool _isBusy;
 
         /// <summary>
         /// Title
         /// </summary>
-        private string _title = string.Empty;
+        private string _title;
 
         #endregion
     }

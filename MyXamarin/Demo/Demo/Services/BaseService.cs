@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -7,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Demo.Services
 {
+    using Helpers;
+
     /// <summary>
     /// Base service
     /// </summary>
@@ -15,34 +16,78 @@ namespace Demo.Services
     {
         #region -- Implements --
 
-        public Task<bool> AddAsync(T item)
+        /// <summary>
+        /// Add
+        /// </summary>
+        /// <param name="m">Model</param>
+        /// <returns>Return the result</returns>
+        public virtual Task<bool> AddAsync(T m)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
 
-        public Task<bool> DeleteAsync(string id)
+        /// <summary>
+        /// Update
+        /// </summary>
+        /// <param name="m">Model</param>
+        /// <returns>Return the result</returns>
+        public virtual Task<bool> UpdateAsync(T m)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
 
-        public Task<IEnumerable<T>> GetAllAsync(bool forceRefresh = false)
+        /// <summary>
+        /// Delete
+        /// </summary>
+        /// <param name="id">Identity</param>
+        /// <returns>Return the result</returns>
+        public virtual Task<bool> DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
 
-        public Task<T> GetAsync(string id)
+        /// <summary>
+        /// Get data
+        /// </summary>
+        /// <param name="id">Identity</param>
+        /// <returns>Return the result</returns>
+        public virtual Task<T> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            T m = null;
+            return Task.FromResult(m);
         }
 
-        public Task<bool> UpdateAsync(T item)
+        /// <summary>
+        /// Get all data
+        /// </summary>
+        /// <param name="refresh">Force refresh</param>
+        /// <returns>Return the result</returns>
+        public virtual Task<IEnumerable<T>> GetAllAsync(bool refresh = false)
         {
-            throw new NotImplementedException();
+            IEnumerable<T> e = null;
+            return Task.FromResult(e);
         }
 
         #endregion
 
         #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public BaseService() { }
+
+        /// <summary>
+        /// Create client
+        /// </summary>
+        /// <returns>Return the result</returns>
+        protected HttpClient CreateClient()
+        {
+            var res = new HttpClient();
+            var t = new AuthenticationHeaderValue("Bearer", Settings.AccessToken);
+            res.DefaultRequestHeaders.Authorization = t;
+            return res;
+        }
 
         /// <summary>
         /// Create data
@@ -53,18 +98,19 @@ namespace Demo.Services
         {
             var jo = JsonConvert.SerializeObject(data);
             var res = new StringContent(jo);
-            res.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var t = new MediaTypeHeaderValue("application/json");
+            res.Headers.ContentType = t;
             return res;
         }
 
         #endregion
 
-        #region -- Fields --
+        #region -- Constants --
 
         /// <summary>
         /// Host
         /// </summary>
-        protected const string Host = "http://occapp.ddns.net:9696/api/";
+        protected const string Host = "http://occapp.ddns.net:9696/";
 
         #endregion
     }

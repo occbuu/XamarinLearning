@@ -54,14 +54,20 @@
     <Compile Include="Models\TimeOutInModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\IDataStore.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\ObjectService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MainMenuVM.cs" />
+    <Compile Include="ViewModels\MenuVM.cs" />
     <Compile Include="ViewModels\MessageVM.cs" />
+    <Compile Include="ViewModels\ObjectVM.cs" />
     <Compile Include="ViewModels\ProfileVM.cs" />
+    <Compile Include="ViewModels\RegisterVM.cs" />
     <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="Views\Brightness.xaml.cs">
       <DependentUpon>Brightness.xaml</DependentUpon>
