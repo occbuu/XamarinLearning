@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 
 namespace Demo.Models
 {
@@ -13,28 +12,10 @@ namespace Demo.Models
         /// <summary>
         /// Initialize
         /// </summary>
-        public ObjectModel()
-        {
-            Data = new ObservableCollection<ObjectData>();
-        }
+        public ObjectModel() { }
 
         #endregion
 
-        #region -- Properties --
-
-        /// <summary>
-        /// Data
-        /// </summary>
-        public ObservableCollection<ObjectData> Data { get; set; }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// Object data
-    /// </summary>
-    public class ObjectData
-    {
         #region -- Properties --
 
         /// <summary>
@@ -86,6 +67,16 @@ namespace Demo.Models
         /// Gender
         /// </summary>
         public bool? Gender { get; set; }
+
+        /// <summary>
+        /// Telephone
+        /// </summary>
+        public string Tel { get; set; }
+
+        /// <summary>
+        /// Email
+        /// </summary>
+        public string Email { get; set; }
 
         #endregion
     }

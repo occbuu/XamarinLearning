@@ -48,7 +48,9 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MainMenuModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\ObjectModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\TimeOutInModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
