@@ -1,0 +1,33 @@
+1. Register
+POST http://occapp.ddns.net:9696/api/Account/Register
+Content-Type: application/json
+Body: 
+{
+	"Email": "nvt87x@gmail.com",
+	"Password": "P@ssword123",
+	"ConfirmPassword": "P@ssword123"
+}
+
+2. Login
+POST http://occapp.ddns.net:9696/Token
+Body: username=nvt87x@gmail.com&password=P@ssword123&grant_type=password
+
+3. Get all list objects
+GET http://occapp.ddns.net:9696/api/Object/GetAll
+Authorization : Bearer <token>
+
+4. Check out/in
+POST http://occapp.ddns.net:9696/api/TimeOutIn/CheckOutIn
+Authorization : Bearer <token>
+Content-Type: application/json
+Body:
+{
+	"ObjectID": "99151121000001",
+	"StampTime": "2015-07-20 19:20:00",
+	"Type": "IN",
+	"DeviceID": "ASUS_T00G|Android|7d118c35648768f2",
+	"Latitude": "10.7622418",
+	"Longtitude": "106.701331",
+	"Altitude": "0",
+	"Address": "109/26 Bến Vân Đồn, phường 8, Quận 4, Hồ Chí Minh, Việt Nam",
+}
