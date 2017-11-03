@@ -5,57 +5,112 @@
              xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Demo.Views.Login"
              Title="Login">
-    <ContentView.BindingContext>
-        <vm:UserVM/>
-    </ContentView.BindingContext>
-
+    <ContentPage.BindingContext>
+        <vm:LoginVM/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
-                <RowDefinition Height="5" />
+                <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Margin="5,0,5,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
-                <control:CircleImage Source="avatar.png" WidthRequest="100" HeightRequest="100" VerticalOptions="EndAndExpand"/>
-                <Image Source="icons_user.png" Grid.Row="1" HorizontalOptions="Start"/>
-                <Entry Grid.Row="1" Text="{Binding Model.User}" Placeholder="         User Name" PlaceholderColor="#bababa" FontSize="16" />
-
-                <Image Source="icons_password.png" Grid.Row="2" HorizontalOptions="Start"/>
-                <Entry Grid.Row="2"  Text="{Binding Model.Pass}" Placeholder="         Password" PlaceholderColor="#bababa" FontSize="16" />
-                <Button Grid.Row="3" Command="{Binding LogInCommand}" Text="Log In" BackgroundColor="#3897F0" TextColor="White" HeightRequest="50" VerticalOptions="Start" />
+                <control:CircleImage Source="avatar.png"
+                                     WidthRequest="100"
+                                     HeightRequest="100"
+                                     VerticalOptions="EndAndExpand"/>
+                <Image Source="icons_user.png"
+                       Grid.Row="1"
+                       HorizontalOptions="Start"/>
+                <Entry Grid.Row="1"
+                       Text="{Binding Model.User}"
+                       Placeholder="          User name"
+                       PlaceholderColor="#bababa"
+                       FontSize="16"/>
+                <Image Source="icons_password.png"
+                       Grid.Row="2"
+                       HorizontalOptions="Start"/>
+                <Entry Grid.Row="2"
+                       Text="{Binding Model.Pass}"
+                       Placeholder="          Password"
+                       PlaceholderColor="#bababa"
+                       FontSize="16"/>
+                <Button Grid.Row="3"
+                        Text="Log in"
+                        TextColor="White"
+                        BackgroundColor="#3897F0"
+                        HeightRequest="50"
+                        VerticalOptions="Start"
+                        Command="{Binding LoginCommand}"/>
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Command="{Binding LogInCommand}" Text="Sign In" BackgroundColor="#990066" TextColor="White" HeightRequest="50" WidthRequest="155" VerticalOptions="StartAndExpand" Grid.Column="1" />
-                    <Button Command="{Binding LogInCommand}" Text="Forget Password" BackgroundColor="#990066" TextColor="White" HeightRequest="50" WidthRequest="155" VerticalOptions="StartAndExpand" Grid.Column="2" />
+                    <Button Grid.Column="0"
+                            Text="Register"
+                            TextColor="White"
+                            BackgroundColor="#990066"
+                            HeightRequest="50"
+                            WidthRequest="155"
+                            VerticalOptions="Start"
+                            Command="{Binding RegisterCommand}"/>
+                    <Button Grid.Column="1"
+                            Text="Forget password"
+                            TextColor="White"
+                            BackgroundColor="#990066"
+                            HeightRequest="50"
+                            WidthRequest="155"
+                            VerticalOptions="StartAndExpand"
+                            Command="{Binding ForgetPasswordCommand}"/>
                 </Grid>
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label BackgroundColor="#bababa" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
-                    <Label Text="OR" Grid.Column="1" VerticalOptions="Center" Margin="10,0,10,0" />
-                    <Label BackgroundColor="#bababa" Grid.Column="2" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    <Label BackgroundColor="#bababa"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"/>
+                    <Label Text="OR"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="10,0,10,0"/>
+                    <Label BackgroundColor="#bababa"
+                           Grid.Column="2"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"/>
                 </Grid>
                 <Grid Grid.Row="6">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="1" Image="facebook.png" Text="Facebook" BackgroundColor="#3B5998" TextColor="White" WidthRequest="155"  VerticalOptions="StartAndExpand" />
-                    <Button Grid.Column="2" Image="google_plus.png" Text="Google" BackgroundColor="#E74C3C" TextColor="White" WidthRequest="155"  VerticalOptions="StartAndExpand" />
+                    <Button Grid.Column="0"
+                            Text="Facebook"
+                            TextColor="White"
+                            BackgroundColor="#3B5998"
+                            WidthRequest="155"
+                            VerticalOptions="Start"
+                            Image="facebook.png"
+                            Command="{Binding LoginFacebookCommand}"/>
+                    <Button Grid.Column="1"
+                            Text="Google"
+                            TextColor="White"
+                            BackgroundColor="#E74C3C"
+                            WidthRequest="155"
+                            VerticalOptions="StartAndExpand"
+                            Image="google_plus.png"
+                            Command="{Binding LoginGoogleCommand}"/>
                 </Grid>
             </Grid>
         </Grid>
