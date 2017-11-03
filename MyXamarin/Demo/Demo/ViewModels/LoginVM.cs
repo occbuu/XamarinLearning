@@ -35,6 +35,10 @@ namespace Demo.ViewModels
             }
 
             LoginCommand = new Command(async () => await ExecuteLoginCommand());
+            RegisterCommand = new Command(async () => await ExecuteRegisterCommand());
+            ForgetCommand = new Command(async () => await ExecuteForgetCommand());
+            GoFacebookCommand = new Command(async () => await ExecuteGoFacebookCommand());
+            GoGoogleCommand = new Command(async () => await ExecuteGoGoogleCommand());
         }
 
         /// <summary>
@@ -49,6 +53,90 @@ namespace Demo.ViewModels
             try
             {
                 Settings.AccessToken = await AccountService.LoginAsync(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally { IsBusy = false; }
+        }
+
+        /// <summary>
+        /// Execute register command
+        /// </summary>
+        /// <returns>Return the result</returns>
+        private async Task ExecuteRegisterCommand()
+        {
+            if (IsBusy) { return; }
+            IsBusy = true;
+
+            try
+            {
+                var e = await ObjectService.GetAllAsync();
+                //TODO
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally { IsBusy = false; }
+        }
+
+        /// <summary>
+        /// Execute forget password command
+        /// </summary>
+        /// <returns>Return the result</returns>
+        private async Task ExecuteForgetCommand()
+        {
+            if (IsBusy) { return; }
+            IsBusy = true;
+
+            try
+            {
+                var e = await ObjectService.GetAllAsync();
+                //TODO
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally { IsBusy = false; }
+        }
+
+        /// <summary>
+        /// Execute go Facebook command
+        /// </summary>
+        /// <returns>Return the result</returns>
+        private async Task ExecuteGoFacebookCommand()
+        {
+            if (IsBusy) { return; }
+            IsBusy = true;
+
+            try
+            {
+                var e = await ObjectService.GetAllAsync();
+                //TODO
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally { IsBusy = false; }
+        }
+
+        /// <summary>
+        /// Execute go Google command
+        /// </summary>
+        /// <returns>Return the result</returns>
+        private async Task ExecuteGoGoogleCommand()
+        {
+            if (IsBusy) { return; }
+            IsBusy = true;
+
+            try
+            {
+                var e = await ObjectService.GetAllAsync();
+                //TODO
             }
             catch (Exception ex)
             {
@@ -75,6 +163,26 @@ namespace Demo.ViewModels
         /// Login command
         /// </summary>
         public Command LoginCommand { get; set; }
+
+        /// <summary>
+        /// Register command
+        /// </summary>
+        public Command RegisterCommand { get; set; }
+
+        /// <summary>
+        /// Forget password command
+        /// </summary>
+        public Command ForgetCommand { get; set; }
+
+        /// <summary>
+        /// Go facebook command
+        /// </summary>
+        public Command GoFacebookCommand { get; set; }
+
+        /// <summary>
+        /// Go Google command
+        /// </summary>
+        public Command GoGoogleCommand { get; set; }
 
         #endregion
     }
