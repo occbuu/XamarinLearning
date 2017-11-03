@@ -28,7 +28,7 @@ namespace Demo.ViewModels
         /// <summary>
         /// Execute LoadCommand
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return the result</returns>
         private async Task ExecuteLoadCommand()
         {
             if (IsBusy) { return; }

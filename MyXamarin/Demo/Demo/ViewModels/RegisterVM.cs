@@ -28,7 +28,7 @@ namespace Demo.ViewModels
         /// <summary>
         /// Execute register command
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return the result</returns>
         private async Task ExecuteRegisterCommand()
         {
             if (IsBusy) { return; }

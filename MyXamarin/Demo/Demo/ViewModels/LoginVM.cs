@@ -40,7 +40,7 @@ namespace Demo.ViewModels
         /// <summary>
         /// Execute login command
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return the result</returns>
         private async Task ExecuteLoginCommand()
         {
             if (IsBusy) { return; }
