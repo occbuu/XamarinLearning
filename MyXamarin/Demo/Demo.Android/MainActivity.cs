@@ -3,10 +3,13 @@ using Android.Content.PM;
 using Android.OS;
 using Plugin.Permissions;
 using Plugin.Toasts;
+using System.IO;
 using Xamarin.Forms;
 
 namespace Demo.Droid
 {
+    using Demo.DAL;
+
     [Activity(Label = "Demo", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -25,6 +28,9 @@ namespace Demo.Droid
             {
                 SmallIconDrawable = Android.Resource.Drawable.IcDialogEmail
             });
+            var dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "productsDB.db");
+            var productsSV = new ProductsService(dbPath);
+            //LoadApplication(new App(productsSV)); //TODO for SQLite
             LoadApplication(new App());
         }
 

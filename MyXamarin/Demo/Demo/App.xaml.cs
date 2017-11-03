@@ -2,6 +2,10 @@
 
 namespace Demo
 {
+    using Demo.Services;
+    using Demo.ViewModels;
+    using Demo.Views;
+
     /// <summary>
     /// App
     /// </summary>
@@ -46,6 +50,17 @@ namespace Demo
             MainPage = new Menu();
         }
 
+        public App(IProductsService productsRepository)
+        {
+            InitializeComponent();
+
+            var productsPage = new ProductsPage()
+            {
+                BindingContext = new ProductsVM(productsRepository)
+            };
+
+            MainPage = new NavigationPage(productsPage);
+        }
         #endregion
     }
 }
