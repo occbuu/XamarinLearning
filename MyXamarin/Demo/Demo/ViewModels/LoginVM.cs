@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Plugin.Toasts;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Demo.ViewModels
 {
+    using Demo.Views;
     using Helpers;
 
     /// <summary>
@@ -52,7 +54,25 @@ namespace Demo.ViewModels
 
             try
             {
-                Settings.AccessToken = await AccountService.LoginAsync(UserName, Password);
+                var t = await AccountService.LoginAsync(UserName, Password);
+
+                if (string.IsNullOrEmpty(t))
+                {
+                    var a = DependencyService.Get<IToastNotificator>();
+                    var b = new NotificationOptions()
+                    {
+                        Title = "Error",
+                        Description = "Login failed..."
+                    };
+                    await a.Notify(b);
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Notification", "Login success...", "OK");
+                    await App.Current.MainPage.Navigation.PushModalAsync(new Profile());
+                }
+
+                Settings.AccessToken = t;
             }
             catch (Exception ex)
             {
