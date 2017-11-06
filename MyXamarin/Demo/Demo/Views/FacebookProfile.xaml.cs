@@ -3,7 +3,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
-    using Demo.ViewModels;
+    using ViewModels;
 
     /// <summary>
     /// Facebook profile
@@ -57,12 +57,6 @@ namespace Demo.Views
             if (url.Contains("access_token") && url.Contains("&expires_in="))
             {
                 var at = url.Replace("https://www.facebook.com/connect/login_success.html#access_token=", "");
-
-                if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
-                {
-                    at = url.Replace("http://www.facebook.com/connect/login_success.html#access_token=", "");
-                }
-
                 var res = at.Remove(at.IndexOf("&expires_in="));
                 return res;
             }

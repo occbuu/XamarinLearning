@@ -1,8 +1,10 @@
-﻿namespace Demo.ViewModels
+﻿using System.Threading.Tasks;
+
+namespace Demo.ViewModels
 {
-    using Demo.Services;
+    using Helpers;
     using Models;
-    using System.Threading.Tasks;
+    using Services;
 
     /// <summary>
     /// Facebook view model
@@ -26,7 +28,7 @@
         /// <returns>Return the result</returns>
         public async Task SetFacebookProfileAsync(string token)
         {
-            Helpers.Settings.AccessToken = token;
+            Settings.AccessToken = token;
             Model = await FacebookService.GetFacebookProfileAsync();
         }
 

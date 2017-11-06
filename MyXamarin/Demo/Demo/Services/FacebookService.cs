@@ -25,7 +25,7 @@ namespace Demo.Services
         /// <returns>Return the result</returns>
         public async Task<FacebookModel> GetFacebookProfileAsync()
         {
-            var url = "https://graph.facebook.com/v2.7/me/?fields=name,picture,work,website,religion,location,locale,link,cover,age_range,bio,birthday,devices,email,first_name,last_name,gender,hometown,is_verified,languages&access_token=" + Settings.AccessToken;
+            var url = "https://graph.facebook.com/v2.10/me/?fields=name,picture,work,website,religion,location,locale,link,cover,age_range,birthday,devices,email,first_name,last_name,gender,hometown,is_verified,languages&access_token=" + Settings.AccessToken;
             var client = new HttpClient();
             var json = await client.GetStringAsync(url);
             var res = JsonConvert.DeserializeObject<FacebookModel>(json);
