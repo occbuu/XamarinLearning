@@ -6,8 +6,8 @@ using Xamarin.Forms;
 
 namespace Demo.ViewModels
 {
-    using Demo.Views;
     using Helpers;
+    using Views;
 
     /// <summary>
     /// Login view model

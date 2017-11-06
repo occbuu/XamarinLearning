@@ -22,7 +22,7 @@ namespace Demo.Models
         #region -- Properties --
 
         /// <summary>
-        /// ID
+        /// Identify
         /// </summary>
         public int Id { get; set; }
 

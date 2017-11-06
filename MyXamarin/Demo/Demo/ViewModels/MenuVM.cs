@@ -26,6 +26,9 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
             Models.Add(m);
 
+            m = new MenuModel { Id = 0, Title = "Log Facebook", TargetType = typeof(FacebookProfile) };
+            Models.Add(m);
+
             m = new MenuModel { Id = 0, Title = "Profile" };
             Models.Add(m);
 
