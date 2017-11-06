@@ -36,6 +36,7 @@ namespace Demo.Views
         public ListObjects()
         {
             InitializeComponent();
+            Title = "List objects";
             BindingContext = _vm = new ObjectVM();
         }
 

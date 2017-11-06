@@ -46,7 +46,7 @@ namespace Demo.Models
         /// <summary>
         /// Cover
         /// </summary>
-        public Cover Cover { get; set; }
+        public CoverFacebook Cover { get; set; }
 
         /// <summary>
         /// Age range
@@ -120,9 +120,9 @@ namespace Demo.Models
     }
 
     /// <summary>
-    /// Cover
+    /// Cover Facebook
     /// </summary>
-    public class Cover
+    public class CoverFacebook
     {
         #region -- Properties --
 

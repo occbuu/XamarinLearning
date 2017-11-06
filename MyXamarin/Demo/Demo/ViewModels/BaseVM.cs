@@ -83,6 +83,11 @@ namespace Demo.ViewModels
         public FacebookService FacebookService => DependencyService.Get<FacebookService>() ?? new FacebookService();
 
         /// <summary>
+        /// Google service
+        /// </summary>
+        public GoogleService GoogleService => DependencyService.Get<GoogleService>() ?? new GoogleService();
+
+        /// <summary>
         /// Object service
         /// </summary>
         public ObjectService ObjectService => DependencyService.Get<ObjectService>() ?? new ObjectService();

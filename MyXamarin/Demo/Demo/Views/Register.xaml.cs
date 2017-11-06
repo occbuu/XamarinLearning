@@ -18,6 +18,7 @@ namespace Demo.Views
         public Register()
         {
             InitializeComponent();
+            Title = "Register";
         }
 
         /// <summary>

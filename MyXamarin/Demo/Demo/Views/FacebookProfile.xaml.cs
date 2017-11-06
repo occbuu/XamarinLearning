@@ -3,6 +3,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
+    using Services;
     using ViewModels;
 
     /// <summary>
@@ -19,40 +20,43 @@ namespace Demo.Views
         public FacebookProfile()
         {
             InitializeComponent();
+            Title = "Facebook orofile";
 
-            var apiRequest = "https://www.facebook.com/v2.10/dialog/oauth?client_id=" + _clientId + "&response_type=token&redirect_uri=https://www.facebook.com/connect/login_success.html";
-            var webView = new WebView
+            var req = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
+                + FacebookService.ClientId + "&response_type=token&redirect_uri="
+                + FacebookService.RedirectUri;
+            var v = new WebView
             {
-                Source = apiRequest,
+                Source = req,
                 HeightRequest = 1
             };
 
-            webView.Navigated += WebView_Navigated;
-            Content = webView;
+            v.Navigated += V_Navigated;
+            Content = v;
         }
 
         /// <summary>
-        /// Web view navigated
+        /// Navigated
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">Event</param>
-        private async void WebView_Navigated(object sender, WebNavigatedEventArgs e)
+        private async void V_Navigated(object sender, WebNavigatedEventArgs e)
         {
-            var token = ExtractAccessTokenFromUrl(e.Url);
+            var token = ExtractTokenFromUrl(e.Url);
             if (!string.IsNullOrEmpty(token))
             {
                 var vm = BindingContext as FacebookVM;
-                await vm.SetFacebookProfileAsync(token);
+                await vm.SetProfileAsync(token);
                 Content = MainStackLayout;
             }
         }
 
         /// <summary>
-        /// Extract access token from URL
+        /// Extract token from URL
         /// </summary>
         /// <param name="url">URL</param>
         /// <returns>Return the result</returns>
-        private string ExtractAccessTokenFromUrl(string url)
+        private string ExtractTokenFromUrl(string url)
         {
             if (url.Contains("access_token") && url.Contains("&expires_in="))
             {
@@ -63,15 +67,6 @@ namespace Demo.Views
 
             return string.Empty;
         }
-
-        #endregion
-
-        #region -- Fields --
-
-        /// <summary>
-        /// Client identify
-        /// </summary>
-        private string _clientId = "128230904509295";
 
         #endregion
     }

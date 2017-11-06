@@ -92,9 +92,7 @@ namespace Demo.ViewModels
 
             try
             {
-                var e = await ObjectService.GetAllAsync();
                 await App.Current.MainPage.Navigation.PushModalAsync(new Register());
-                //TODO
             }
             catch (Exception ex)
             {
@@ -135,9 +133,7 @@ namespace Demo.ViewModels
 
             try
             {
-                var e = await ObjectService.GetAllAsync();
                 await App.Current.MainPage.Navigation.PushModalAsync(new FacebookProfile());
-                //TODO
             }
             catch (Exception ex)
             {
@@ -157,8 +153,7 @@ namespace Demo.ViewModels
 
             try
             {
-                var e = await ObjectService.GetAllAsync();
-                //TODO
+                await App.Current.MainPage.Navigation.PushModalAsync(new GoogleProfile());
             }
             catch (Exception ex)
             {

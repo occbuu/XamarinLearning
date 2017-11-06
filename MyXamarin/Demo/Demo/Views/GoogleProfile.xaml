@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Demo.ViewModels"
+             x:Class="Demo.Views.GoogleProfile">
+    <ContentPage.BindingContext>
+        <vm:GoogleVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout"
+                     Padding="8,0"
+                     Orientation="Vertical">
+            <StackLayout Orientation="Horizontal"
+                         Padding="0,20,0,50">
+                <Image Source="{Binding Model.Image.Url}"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       VerticalOptions="Start"/>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding Model.DisplayName, StringFormat='Display name: {0:N}'}"
+                           TextColor="Black"
+                           Font="Bold"
+                           FontSize="18"/>
+                    <Label Text="{Binding Model.Id, StringFormat='Id: {0:N}'}"
+                           TextColor="Black"
+                           FontSize="16"/>
+                    <Label Text="{Binding Model.Occupation, StringFormat='Occupation: {0:N}'}"
+                           TextColor="Black"
+                           FontSize="16"/>
+                    <Label Text="{Binding Model.Tagline, StringFormat='Tagline: {0:N}'}"
+                           TextColor="Black"
+                           FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="{Binding Model.CircledByCount, StringFormat='Circled by count: {0:N}'}"
+                   TextColor="Black"
+                   FontSize="16"/>
+            <Label Text="{Binding Model.Verified, StringFormat='Verified: {0:N}'}"
+                   TextColor="Black"
+                   FontSize="16"/>
+            <Image Source="{Binding Model.Cover.CoverPho.Url}"
+                   HeightRequest="200"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

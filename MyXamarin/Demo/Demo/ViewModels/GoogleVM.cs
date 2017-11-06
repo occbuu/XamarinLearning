@@ -7,18 +7,18 @@ namespace Demo.ViewModels
     using Services;
 
     /// <summary>
-    /// Facebook view model
+    /// Google view model
     /// </summary>
-    public class FacebookVM : BaseVM
+    public class GoogleVM : BaseVM
     {
         #region -- Methods --
 
         /// <summary>
         /// Initialize
         /// </summary>
-        public FacebookVM()
+        public GoogleVM()
         {
-            Title = "Facebook";
+            Title = "Google";
         }
 
         /// <summary>
@@ -29,7 +29,18 @@ namespace Demo.ViewModels
         public async Task SetProfileAsync(string token)
         {
             Settings.AccessToken = token;
-            Model = await FacebookService.GetProfileAsync();
+            Model = await GoogleService.GetProfileAsync();
+        }
+
+        /// <summary>
+        /// Get access token
+        /// </summary>
+        /// <param name="code">Code</param>
+        /// <returns>Return the result</returns>
+        public async Task<string> GetTokenAsync(string code)
+        {
+            var res = await GoogleService.GetTokenAsync(code);
+            return res;
         }
 
         #endregion
@@ -39,7 +50,7 @@ namespace Demo.ViewModels
         /// <summary>
         /// Model
         /// </summary>
-        public FacebookModel Model
+        public GoogleModel Model
         {
             get { return _model; }
             set
@@ -56,7 +67,7 @@ namespace Demo.ViewModels
         /// <summary>
         /// Model
         /// </summary>
-        private FacebookModel _model;
+        private GoogleModel _model;
 
         #endregion
     }
