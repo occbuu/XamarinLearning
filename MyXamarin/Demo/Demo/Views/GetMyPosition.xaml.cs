@@ -27,8 +27,8 @@ namespace Demo.Views
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            var postion = await locator.GetLastKnownLocationAsync();
-            //var postion = await locator.GetPositionAsync();
+            //var postion = await locator.GetLastKnownLocationAsync();
+            var postion = await locator.GetPositionAsync();
 
             var address = await locator.GetAddressesForPositionAsync(postion);
 
