@@ -20,13 +20,7 @@ namespace Demo.ViewModels
             Title = "Main menu";
             Models = new ObservableCollection<MenuModel>();
 
-            var m = new MenuModel { Id = 0, Title = "Register", TargetType = typeof(Register) };
-            Models.Add(m);
-
-            m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
-            Models.Add(m);
-
-            m = new MenuModel { Id = 0, Title = "Log Facebook", TargetType = typeof(FacebookProfile) };
+            var m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Profile" };
