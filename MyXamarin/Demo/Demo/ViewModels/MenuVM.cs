@@ -32,13 +32,16 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "List objects", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Test SQLite", TargetType = typeof(ProductsPage2) };
+            m = new MenuModel { Id = 0, Title = "Test SQLite", TargetType = typeof(ProductPage2) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Get Device", TargetType = typeof(GetDevice) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Get Position", TargetType = typeof(GetMyPosition) };
+            Models.Add(m);
+
+            m = new MenuModel { Id = 0, Title = "Get Position", TargetType = typeof(Slide) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Log out" };
