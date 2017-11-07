@@ -147,6 +147,9 @@
     <Compile Include="Views\Slide.xaml.cs">
       <DependentUpon>Slide.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tabs.xaml.cs">
+      <DependentUpon>Tabs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UploadImages.xaml.cs">
       <DependentUpon>UploadImages.xaml</DependentUpon>
     </Compile>
@@ -360,6 +363,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ActionSheet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Tabs.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
