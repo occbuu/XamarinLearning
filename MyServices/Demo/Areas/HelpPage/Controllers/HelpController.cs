@@ -1,11 +1,12 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Demo.Areas.HelpPage.ModelDescriptions;
-using Demo.Areas.HelpPage.Models;
 
 namespace Demo.Areas.HelpPage.Controllers
 {
+    using ModelDescriptions;
+    using Models;
+
     /// <summary>
     /// The controller that will handle requests for the help page.
     /// </summary>
@@ -13,10 +14,7 @@ namespace Demo.Areas.HelpPage.Controllers
     {
         private const string ErrorViewName = "Error";
 
-        public HelpController()
-            : this(GlobalConfiguration.Configuration)
-        {
-        }
+        public HelpController() : this(GlobalConfiguration.Configuration) { }
 
         public HelpController(HttpConfiguration config)
         {

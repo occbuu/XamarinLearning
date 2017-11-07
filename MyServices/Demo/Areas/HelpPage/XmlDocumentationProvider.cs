@@ -5,10 +5,11 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using Demo.Areas.HelpPage.ModelDescriptions;
 
 namespace Demo.Areas.HelpPage
 {
+    using ModelDescriptions;
+
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
     /// </summary>

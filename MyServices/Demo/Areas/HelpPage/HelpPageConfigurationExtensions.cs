@@ -11,11 +11,12 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using Demo.Areas.HelpPage.ModelDescriptions;
-using Demo.Areas.HelpPage.Models;
 
 namespace Demo.Areas.HelpPage
 {
+    using ModelDescriptions;
+    using Models;
+
     public static class HelpPageConfigurationExtensions
     {
         private const string ApiModelPrefix = "MS_HelpPageApiModel_";
