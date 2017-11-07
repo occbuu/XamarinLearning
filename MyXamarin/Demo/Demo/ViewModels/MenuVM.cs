@@ -44,6 +44,9 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Get Position", TargetType = typeof(Slide) };
             Models.Add(m);
 
+            m = new MenuModel { Id = 0, Title = "Example Component", TargetType = typeof(ActionSheet) };
+            Models.Add(m);
+
             m = new MenuModel { Id = 0, Title = "Log out" };
             Models.Add(m);
         }
