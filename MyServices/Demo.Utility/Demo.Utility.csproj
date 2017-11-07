@@ -30,6 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Apple">
+      <HintPath>..\lib\PushSharp\PushSharp.Apple.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Core">
+      <HintPath>..\lib\PushSharp\PushSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Google">
+      <HintPath>..\lib\PushSharp\PushSharp.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Windows">
+      <HintPath>..\lib\PushSharp\PushSharp.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -45,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZConverts.cs" />
     <Compile Include="ZEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
