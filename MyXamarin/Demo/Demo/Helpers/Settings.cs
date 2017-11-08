@@ -1,4 +1,6 @@
-﻿namespace Demo.Helpers
+﻿using Xamarin.Auth;
+
+namespace Demo.Helpers
 {
     /// <summary>
     /// Settings
@@ -21,6 +23,11 @@
         /// Password
         /// </summary>
         public static string Password { get; set; }
+
+        /// <summary>
+        /// Authenticator
+        /// </summary>
+        public static OAuth2Authenticator Authenticator;
 
         #endregion
     }

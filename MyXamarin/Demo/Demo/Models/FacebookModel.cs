@@ -57,7 +57,7 @@ namespace Demo.Models
         /// <summary>
         /// Devices
         /// </summary>
-        public Device[] Devices { get; set; }
+        public DeviceFacebook[] Devices { get; set; }
 
         /// <summary>
         /// First name
@@ -162,7 +162,7 @@ namespace Demo.Models
     /// <summary>
     /// Device
     /// </summary>
-    public class Device
+    public class DeviceFacebook
     {
         #region -- Properties --
 

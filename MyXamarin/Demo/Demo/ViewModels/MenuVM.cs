@@ -26,6 +26,9 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Profile" };
             Models.Add(m);
 
+            m = new MenuModel { Id = 0, Title = "OAuth native flow", TargetType = typeof(OAuthNativeFlow) };
+            Models.Add(m);
+
             m = new MenuModel { Id = 0, Title = "Main page", TargetType = typeof(MainPage) };
             Models.Add(m);
 

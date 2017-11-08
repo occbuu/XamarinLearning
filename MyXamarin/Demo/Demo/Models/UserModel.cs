@@ -1,48 +1,77 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 
 namespace Demo.Models
 {
     /// <summary>
     /// User model
     /// </summary>
-    public class UserModel : BaseModel
+    [JsonObject]
+    public class UserModel
     {
+        #region -- Methods --
+
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        public UserModel() { }
+
+        #endregion
+
         #region -- Properties --
 
         /// <summary>
-        /// User account
+        /// Identify
         /// </summary>
-        public string User { get; set; }
+        [JsonProperty("id")]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Password
+        /// Email
         /// </summary>
-        public string Pass { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
 
         /// <summary>
-        /// Object ID
+        /// Verified email
         /// </summary>
-        public string ObjectID { get; set; }
+        [JsonProperty("verified_email")]
+        public bool VerifiedEmail { get; set; }
 
         /// <summary>
-        /// Last log in
+        /// Name
         /// </summary>
-        public DateTime? LastLogin { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Log in name
+        /// Given name
         /// </summary>
-        public string LoginName { get; set; }
+        [JsonProperty("given_name")]
+        public string GivenName { get; set; }
 
         /// <summary>
-        /// Role ID
+        /// Family name
         /// </summary>
-        public string RoleID { get; set; }
+        [JsonProperty("family_name")]
+        public string FamilyName { get; set; }
 
         /// <summary>
-        /// Manage group
+        /// Link
         /// </summary>
-        public string ManageGroup { get; set; }
+        [JsonProperty("link")]
+        public string Link { get; set; }
+
+        /// <summary>
+        /// Picture
+        /// </summary>
+        [JsonProperty("picture")]
+        public string Picture { get; set; }
+
+        /// <summary>
+        /// Gender
+        /// </summary>
+        [JsonProperty("gender")]
+        public string Gender { get; set; }
 
         #endregion
     }
