@@ -62,7 +62,7 @@
                             HeightRequest="50"
                             WidthRequest="155"
                             VerticalOptions="Start"
-                            Command="{Binding RegisterCommand}"/>
+                            Clicked="Register_Clicked"/>
                     <Button Grid.Column="1"
                             Text="Forget password"
                             TextColor="White"
@@ -70,7 +70,7 @@
                             HeightRequest="50"
                             WidthRequest="155"
                             VerticalOptions="StartAndExpand"
-                            Command="{Binding ForgetCommand}"/>
+                            Clicked="Forget_Clicked"/>
                 </Grid>
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
@@ -103,7 +103,7 @@
                             WidthRequest="155"
                             VerticalOptions="Start"
                             Image="facebook.png"
-                            Command="{Binding GoFacebookCommand}"/>
+                            Clicked="GoFacebook_Clicked"/>
                     <Button Grid.Column="1"
                             Text="Google"
                             TextColor="White"
@@ -111,7 +111,7 @@
                             WidthRequest="155"
                             VerticalOptions="StartAndExpand"
                             Image="google_plus.png"
-                            Command="{Binding GoGoogleCommand}"/>
+                            Clicked="GoGoogle_Clicked"/>
                 </Grid>
             </Grid>
         </Grid>

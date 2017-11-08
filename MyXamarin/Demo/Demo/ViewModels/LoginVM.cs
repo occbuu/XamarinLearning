@@ -55,6 +55,7 @@ namespace Demo.ViewModels
             try
             {
                 var t = await AccountService.LoginAsync(UserName, Password);
+                Settings.AccessToken = t;
 
                 if (string.IsNullOrEmpty(t))
                 {
@@ -68,11 +69,10 @@ namespace Demo.ViewModels
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Notification", "Login success...", "OK");
-                    await App.Current.MainPage.Navigation.PushModalAsync(new Profile());
+                    //await App.Current.MainPage.DisplayAlert("Notification", "Login success...", "OK");
+                    await App.Current.MainPage.Navigation.PushModalAsync(new Menu());
                 }
 
-                Settings.AccessToken = t;
             }
             catch (Exception ex)
             {

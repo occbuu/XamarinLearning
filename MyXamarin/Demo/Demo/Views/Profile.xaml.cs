@@ -2,9 +2,9 @@
 
 namespace Demo.Views
 {
+    using Plugin.Toasts;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
-    using Plugin.Toasts;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Profile : ContentPage
@@ -12,6 +12,7 @@ namespace Demo.Views
         public Profile()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, true);
         }
 
         private async void Button_Toast(object sender, EventArgs e)

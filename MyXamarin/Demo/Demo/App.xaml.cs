@@ -5,6 +5,7 @@ namespace Demo
     using Demo.Services;
     using Demo.ViewModels;
     using Demo.Views;
+    using Helpers;
 
     /// <summary>
     /// App
@@ -47,7 +48,14 @@ namespace Demo
         public App()
         {
             InitializeComponent();
-            MainPage = new Menu();
+            if (string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainPage = new NavigationPage(new Login());
+            }
+            else
+            {
+                MainPage = new Menu();
+            }
         }
 
         public App(IProductsService productsRepository)

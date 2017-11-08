@@ -20,10 +20,7 @@ namespace Demo.ViewModels
             Title = "Main menu";
             Models = new ObservableCollection<MenuModel>();
 
-            var m = new MenuModel { Id = 0, Title = "Log in", TargetType = typeof(Login) };
-            Models.Add(m);
-
-            m = new MenuModel { Id = 0, Title = "Profile" };
+            var m = new MenuModel { Id = 0, Title = "Profile" };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "OAuth native flow", TargetType = typeof(OAuthNativeFlow) };

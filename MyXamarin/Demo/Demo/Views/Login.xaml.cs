@@ -17,9 +17,28 @@ namespace Demo.Views
         public Login()
         {
             InitializeComponent();
-            Title = "Login";
         }
 
         #endregion
+
+        private async void Register_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Register());
+        }
+
+        private void Forget_Clicked(object sender, System.EventArgs e)
+        {
+            //await Navigation.PushAsync(new Forget());
+        }
+
+        private async void GoFacebook_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new FacebookProfile());
+        }
+
+        private async void GoGoogle_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new GoogleProfile());
+        }
     }
 }
