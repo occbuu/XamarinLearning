@@ -77,7 +77,6 @@
     <Compile Include="Services\ISQLite.cs" />
     <Compile Include="Services\ObjectService.cs" />
     <Compile Include="Services\ProductsService2.cs" />
-    <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\FacebookVM.cs" />
     <Compile Include="ViewModels\GoogleVM.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="ViewModels\ProductsVM2.cs" />
     <Compile Include="ViewModels\ProfileVM.cs" />
     <Compile Include="ViewModels\RegisterVM.cs" />
-    <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="Views\ActionSheet.xaml.cs">
       <DependentUpon>ActionSheet.xaml</DependentUpon>
     </Compile>
