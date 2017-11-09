@@ -48,13 +48,28 @@ namespace Demo
         public App()
         {
             InitializeComponent();
+
             if (string.IsNullOrEmpty(Settings.AccessToken))
             {
                 MainPage = new NavigationPage(new Login());
             }
             else
             {
-                MainPage = new Menu();
+                if (Settings.TokenExpiration != null)
+                {
+                    if (Settings.TokenExpiration < System.DateTime.Now)
+                    {
+                        MainPage = new NavigationPage(new Login());
+                    }
+                    else
+                    {
+                        MainPage = new Menu();
+                    }
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new Login());
+                }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
@@ -33,24 +34,44 @@ namespace Demo.Views
 
         #endregion
 
-        private async void Register_Clicked(object sender, System.EventArgs e)
+        /// <summary>
+        /// Go register clicked
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private async void Register_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Register());
         }
 
-        private async void Forget_Clicked(object sender, System.EventArgs e)
+        /// <summary>
+        /// Go forget password clicked
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private async void Forget_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ForgetPassword());
         }
 
-        private async void GoFacebook_Clicked(object sender, System.EventArgs e)
+        /// <summary>
+        /// Go Facebook clicked
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private async void GoFacebook_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FacebookProfile());
         }
 
-        private async void GoGoogle_Clicked(object sender, System.EventArgs e)
+        /// <summary>
+        /// Go Google clicked
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private async void GoGoogle_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GoogleProfile());
+            await Navigation.PushAsync(new OAuthNativeFlow());
         }
     }
 }
