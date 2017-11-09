@@ -59,7 +59,6 @@
     <Compile Include="Models\GoogleModel.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\MainMenuModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\ObjectModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -81,7 +80,6 @@
     <Compile Include="ViewModels\FacebookVM.cs" />
     <Compile Include="ViewModels\GoogleVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
-    <Compile Include="ViewModels\MainMenuVM.cs" />
     <Compile Include="ViewModels\MenuVM.cs" />
     <Compile Include="ViewModels\MessageVM.cs" />
     <Compile Include="ViewModels\ObjectVM.cs" />
@@ -115,15 +113,6 @@
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainMenuDetail.xaml.cs">
-      <DependentUpon>MainMenuDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainMenuMaster.xaml.cs">
-      <DependentUpon>MainMenuMaster.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
@@ -296,24 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\UploadImages.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainMenu.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainMenuMaster.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainMenuDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

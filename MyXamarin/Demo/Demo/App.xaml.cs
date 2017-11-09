@@ -2,10 +2,10 @@
 
 namespace Demo
 {
-    using Demo.Services;
-    using Demo.ViewModels;
-    using Demo.Views;
     using Helpers;
+    using Services;
+    using ViewModels;
+    using Views;
 
     /// <summary>
     /// App
@@ -58,17 +58,20 @@ namespace Demo
             }
         }
 
-        public App(IProductsService productsRepository)
+        /// <summary>
+        /// Initialize
+        /// </summary>
+        /// <param name="rep">productsRepository</param>
+        public App(IProductsService rep) : this()
         {
-            InitializeComponent();
-
-            var productsPage = new ProductsPage()
+            var page = new ProductsPage()
             {
-                BindingContext = new ProductsVM(productsRepository)
+                BindingContext = new ProductsVM(rep)
             };
 
-            MainPage = new NavigationPage(productsPage);
+            MainPage = new NavigationPage(page);
         }
+
         #endregion
     }
 }

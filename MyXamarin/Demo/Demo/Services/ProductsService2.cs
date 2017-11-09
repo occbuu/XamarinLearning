@@ -1,18 +1,20 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Demo.Services
 {
-    using Demo.Models;
-    using SQLite;
-    using System.Linq;
-    using Xamarin.Forms;
+    using Models;
 
     public class ProductsService2 : IProductsService
     {
         private readonly SQLiteConnection _sqLiteConnection;
+
         private int idAuto = 0;
+
         public ProductsService2()
         {
             _sqLiteConnection = DependencyService.Get<ISQLite>().GetConnection();
@@ -32,13 +34,13 @@ namespace Demo.Services
             {
                 m.Id = idAuto;
                 var tracking = _sqLiteConnection.Insert(m);
-                var isAdded = tracking > 0 ? true : false;
+                var ok = tracking > 0 ? true : false;
                 idAuto++;
-                return isAdded;
+                return await Task.FromResult(ok);
             }
-            catch (Exception e)
+            catch
             {
-                return false;
+                return await Task.FromResult(false);
             }
         }
 
@@ -47,13 +49,12 @@ namespace Demo.Services
             try
             {
                 var tracking = _sqLiteConnection.Update(m);
-                var isModified = tracking > 0 ? true : false;
-
-                return isModified;
+                var ok = tracking > 0 ? true : false;
+                return await Task.FromResult(ok);
             }
-            catch (Exception e)
+            catch
             {
-                return false;
+                return await Task.FromResult(false);
             }
         }
 
@@ -62,13 +63,12 @@ namespace Demo.Services
             try
             {
                 var tracking = _sqLiteConnection.Delete<ProductModel>(id);
-                var isDeleted = tracking > 0 ? true : false;
-
-                return isDeleted;
+                var ok = tracking > 0 ? true : false;
+                return await Task.FromResult(ok);
             }
-            catch (Exception e)
+            catch
             {
-                return false;
+                return await Task.FromResult(false);
             }
         }
 
@@ -77,10 +77,9 @@ namespace Demo.Services
             try
             {
                 var products = _sqLiteConnection.Table<ProductModel>();
-
-                return products;
+                return await Task.FromResult(products);
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -91,10 +90,9 @@ namespace Demo.Services
             try
             {
                 var product = _sqLiteConnection.Get<ProductModel>(id);
-
-                return product;
+                return await Task.FromResult(product);
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -105,10 +103,9 @@ namespace Demo.Services
             try
             {
                 var products = _sqLiteConnection.Query<ProductModel>("select * from ProductModel");
-
-                return products.ToList();
+                return await Task.FromResult(products.ToList());
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }

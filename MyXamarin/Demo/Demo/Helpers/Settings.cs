@@ -12,14 +12,6 @@ namespace Demo.Helpers
     {
         #region -- Properties --
 
-        private static ISettings AppSettings
-        {
-            get
-            {
-                return CrossSettings.Current;
-            }
-        }
-
         /// <summary>
         /// Access token
         /// </summary>
@@ -65,22 +57,40 @@ namespace Demo.Helpers
             }
         }
 
-        public static DateTime AccessTokenExpirationDate
+        /// <summary>
+        /// Access token expiration date
+        /// </summary>
+        public static DateTime TokenExpiration
         {
             get
             {
-                return AppSettings.GetValueOrDefault("AccessTokenExpirationDate", DateTime.UtcNow);
+                return AppSettings.GetValueOrDefault("TokenExpiration", DateTime.UtcNow);
             }
             set
             {
-                AppSettings.AddOrUpdateValue("AccessTokenExpirationDate", value);
+                AppSettings.AddOrUpdateValue("TokenExpiration", value);
             }
         }
 
         /// <summary>
+        /// App settings
+        /// </summary>
+        private static ISettings AppSettings
+        {
+            get
+            {
+                return CrossSettings.Current;
+            }
+        }
+
+        #endregion
+
+        #region -- Fields --
+
+        /// <summary>
         /// Authenticator
         /// </summary>
-        public static OAuth2Authenticator Authenticator;
+        public static OAuth2Authenticator _authenticator;
 
         #endregion
     }

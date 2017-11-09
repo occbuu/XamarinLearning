@@ -1,17 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Demo.DAL
 {
-    using Demo.Models;
-    using Demo.Services;
-    using System.Linq;
+    using Models;
+    using Services;
 
     public class ProductsService : IProductsService
     {
         private readonly DatabaseContext _databaseContext;
+
         public ProductsService(string dbPath)
         {
             _databaseContext = new DatabaseContext(dbPath);
@@ -29,7 +30,7 @@ namespace Demo.DAL
 
                 return isAdded;
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -47,7 +48,7 @@ namespace Demo.DAL
 
                 return isModified;
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -67,7 +68,7 @@ namespace Demo.DAL
 
                 return isDeleted;
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -81,7 +82,7 @@ namespace Demo.DAL
 
                 return products;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -95,7 +96,7 @@ namespace Demo.DAL
 
                 return product;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -106,10 +107,9 @@ namespace Demo.DAL
             try
             {
                 var products = _databaseContext.Products.Where(predicate);
-
-                return products.ToList();
+                return await Task.FromResult(products.ToList());
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }

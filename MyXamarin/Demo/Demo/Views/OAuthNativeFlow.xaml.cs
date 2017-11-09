@@ -60,7 +60,7 @@ namespace Demo.Views
             authenticator.Completed += OnAuthCompleted;
             authenticator.Error += OnAuthError;
 
-            Settings.Authenticator = authenticator;
+            Settings._authenticator = authenticator;
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(authenticator);
         }

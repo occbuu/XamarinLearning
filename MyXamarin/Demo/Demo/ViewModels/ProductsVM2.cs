@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Demo.ViewModels
 {
-    using Demo.Models;
-    using Demo.Services;
+    using Models;
+    using Services;
 
-    public class ProductsVM2 : BaseVM, INotifyPropertyChanged
+    public class ProductsVM2 : BaseVM
     {
         ProductsService2 _productsRepository = new ProductsService2();
 
@@ -57,13 +55,6 @@ namespace Demo.ViewModels
                     await _productsRepository.AddAsync(product);
                 });
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
