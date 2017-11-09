@@ -32,6 +32,11 @@ namespace Demo.Models
         public string Title { get; set; }
 
         /// <summary>
+        /// Icon
+        /// </summary>
+        public string Icon { get; set; }
+
+        /// <summary>
         /// Target type
         /// </summary>
         public Type TargetType { get; set; }

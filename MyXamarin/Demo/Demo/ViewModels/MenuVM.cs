@@ -20,34 +20,34 @@ namespace Demo.ViewModels
             Title = "Main menu";
             Models = new ObservableCollection<MenuModel>();
 
-            var m = new MenuModel { Id = 0, Title = "Profile" };
+            var m = new MenuModel { Id = 0, Title = "Profile", Icon = "Profile.png" };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "OAuth native flow", TargetType = typeof(OAuthNativeFlow) };
+            m = new MenuModel { Id = 0, Title = "Google Plus", TargetType = typeof(OAuthNativeFlow) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Main page", TargetType = typeof(MainPage) };
+            m = new MenuModel { Id = 0, Title = "Check In/Out", Icon = "CheckInOut.png", TargetType = typeof(CheckINOUT) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "List objects", TargetType = typeof(ListObjects) };
+            m = new MenuModel { Id = 0, Title = "List objects", Icon = "ListObject.png", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Test SQLite", TargetType = typeof(ProductPage2) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Get Device", TargetType = typeof(GetDevice) };
+            m = new MenuModel { Id = 0, Title = "Get Device", Icon = "GetDevice.png", TargetType = typeof(GetDevice) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Get Position", TargetType = typeof(GetMyPosition) };
+            m = new MenuModel { Id = 0, Title = "Get Position", Icon = "Position.png", TargetType = typeof(GetMyPosition) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Slide", TargetType = typeof(Slide) };
+            m = new MenuModel { Id = 0, Title = "Slide", Icon = "Slides.png", TargetType = typeof(Slide) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Example Component", TargetType = typeof(ActionSheet) };
+            m = new MenuModel { Id = 0, Title = "Component", TargetType = typeof(ActionSheet) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Tabs", TargetType = typeof(Tabs) };
+            m = new MenuModel { Id = 0, Title = "Tabs", Icon = "Tabs.png", TargetType = typeof(Tabs) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Log out", TargetType = typeof(Login) };
