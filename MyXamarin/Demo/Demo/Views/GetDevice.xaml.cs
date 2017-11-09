@@ -1,6 +1,5 @@
 ﻿using Plugin.DeviceInfo;
 using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

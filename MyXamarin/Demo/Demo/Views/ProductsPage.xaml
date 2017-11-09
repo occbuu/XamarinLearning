@@ -4,23 +4,22 @@
              x:Class="Demo.Views.ProductsPage">
     <ContentPage.Content>
         <StackLayout Spacing="10"
-                 Padding="20">
-            <Entry Text="{Binding ProductTitle}" Placeholder="Enter product name" />
-            <Entry Text="{Binding ProductPrice}" Placeholder="Enter price"/>
-
+                     Padding="20">
+            <Entry Text="{Binding ProductTitle}"
+                   Placeholder="Enter product name"/>
+            <Entry Text="{Binding ProductPrice}"
+                   Placeholder="Enter price"/>
             <Button Text="Add Product"
-                TextColor="White"
-                BackgroundColor="DodgerBlue"
-                FontSize="22"
-                Command="{Binding AddCommand}" />
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    FontSize="22"
+                    Command="{Binding AddCommand}"/>
             <Button Text="Refresh Products"
-                TextColor="White"
-                BackgroundColor="Fuchsia"
-                FontSize="22"
-                Command="{Binding RefreshCommand}" />
-
-            <ListView ItemsSource="{Binding Products}" />
-
+                    TextColor="White"
+                    BackgroundColor="Fuchsia"
+                    FontSize="22"
+                    Command="{Binding RefreshCommand}"/>
+            <ListView ItemsSource="{Binding Products}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

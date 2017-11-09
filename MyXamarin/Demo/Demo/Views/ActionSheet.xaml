@@ -6,8 +6,8 @@
         <StackLayout>
             <Label Text="DEMO ACTION SHEET!"
                    FontSize="30"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
             <Button Text="ACTION SHEET"
                     Clicked="ActionSheet_Clicked">
             </Button>

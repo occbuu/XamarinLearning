@@ -70,7 +70,6 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\FacebookService.cs" />
     <Compile Include="Services\GoogleService.cs" />
-    <Compile Include="Services\IDataStore.cs" />
     <Compile Include="Services\IProductsService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\ISQLite.cs" />

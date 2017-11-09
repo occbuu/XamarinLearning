@@ -18,7 +18,9 @@ namespace Demo.Views
             // Send Sms
             var smsMessenger = CrossMessaging.Current.SmsMessenger;
             if (smsMessenger.CanSendSms)
+            {
                 smsMessenger.SendSms("+84965533254", "Hello Ms.Ngan");
+            }
         }
 
         private void PhoneCall_Clicked(object sender, EventArgs e)

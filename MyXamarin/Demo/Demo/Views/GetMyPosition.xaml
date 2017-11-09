@@ -6,9 +6,10 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Demo get GPS Position"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Get GPS" Clicked="GetPositionClicked"></Button>
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Get GPS"
+                    Clicked="GetPositionClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

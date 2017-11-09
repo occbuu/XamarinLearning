@@ -5,20 +5,25 @@
              Title="Get Device">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="iOS" Value="5,20,0,5" />
-            <On Platform="Android, WinPhone, UWP" Value="5,0,0,5" />
+            <On Platform="iOS" Value="5,20,0,5"/>
+            <On Platform="Android, WinPhone, UWP" Value="5,0,0,5"/>
         </OnPlatform>
     </ContentPage.Padding>
     <StackLayout>
-        <Button Text="Get Information" Clicked="GetInformationClicked" />
-        <Label Text="Thong tin He thong" Font="Large"></Label>
-        <Label Text="Tagert Platform OS la: (Android, IOS,Windows, WinPhone, Other )"></Label>
-        <Label x:Name="LblTagertPlatform" Font="Large"></Label>
-        <Label Text="Font size"></Label>
-        <Label x:Name="LblFontSize" Font="Large"></Label>
-        <Label Text="Idiom (Loai cua thiet bi)" ></Label>
-        <Label x:Name="LblTargetIdiom" Font="Large"></Label>
-
-        <Button Text="Require Open vnexpress" Clicked="OpenUriClicked" />
+        <Button Text="Get Information"
+                Clicked="GetInformationClicked"/>
+        <Label Text="Thong tin He thong"
+               Font="Large"/>
+        <Label Text="Tagert Platform OS la: (Android, IOS,Windows, WinPhone, Other)"/>
+        <Label x:Name="LblTagertPlatform"
+               Font="Large"/>
+        <Label Text="Font size"/>
+        <Label x:Name="LblFontSize"
+               Font="Large"/>
+        <Label Text="Idiom (Loai cua thiet bi)"/>
+        <Label x:Name="LblTargetIdiom"
+               Font="Large"/>
+        <Button Text="Require Open vnexpress"
+                Clicked="OpenUriClicked"/>
     </StackLayout>
 </ContentPage>

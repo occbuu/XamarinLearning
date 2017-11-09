@@ -5,12 +5,20 @@
              x:Class="Demo.Views.Slide"
              Title="Slide Images">
     <StackLayout BackgroundColor="Black">
-        <Label Text="Slide Images" FontSize="50" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <forms:CarouselView x:Name="MainCarouselView" VerticalOptions="Start" HeightRequest="500">
+        <Label Text="Slide Images"
+               FontSize="50"
+               TextColor="White"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        <forms:CarouselView x:Name="MainCarouselView"
+                            VerticalOptions="Start"
+                            HeightRequest="500">
             <forms:CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Vertical">
-                        <Image Source="{Binding .}" Aspect="AspectFit" HeightRequest="500"/>
+                        <Image Source="{Binding .}"
+                               Aspect="AspectFit"
+                               HeightRequest="500"/>
                     </StackLayout>
                 </DataTemplate>
             </forms:CarouselView.ItemTemplate>

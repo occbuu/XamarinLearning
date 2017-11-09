@@ -5,28 +5,50 @@
              Title="Profile">
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Image Source="avatar.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="avatar.png"
+                   WidthRequest="100"
+                   HeightRequest="100"
+                   HorizontalOptions="CenterAndExpand"/>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Full Name:" Font="Bold,20"/>
-                <Label Text="Phan Khánh Vân" Font="Italic,20" TextColor="Blue" />
+                <Label Text="Full Name:"
+                       Font="Bold,20"/>
+                <Label Text="Phan Khánh Vân"
+                       Font="Italic,20"
+                       TextColor="Blue"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="D.O.B:" Font="Bold,20"/>
-                <Label Text="17 / 11 / 1995" Font="Italic,20" TextColor="Blue" />
+                <Label Text="D.O.B:"
+                       Font="Bold,20"/>
+                <Label Text="17 / 11 / 1995"
+                       Font="Italic,20"
+                       TextColor="Blue"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Gender:" Font="Bold,20"/>
-                <Label Text="Male" Font="Italic,20" TextColor="Blue" />
+                <Label Text="Gender:"
+                       Font="Bold,20"/>
+                <Label Text="Male"
+                       Font="Italic,20"
+                       TextColor="Blue"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Address:" Font="Bold,20"/>
-                <Label Text="Hoang Dieu, District 4, HCMC" Font="Italic,20" TextColor="Blue" />
+                <Label Text="Address:"
+                       Font="Bold,20"/>
+                <Label Text="Hoang Dieu, District 4, HCMC"
+                       Font="Italic,20"
+                       TextColor="Blue"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Nationality:" Font="Bold,20"/>
-                <Label Text="Viet Nam" Font="Italic,20" TextColor="Blue" />
+                <Label Text="Nationality:"
+                       Font="Bold,20"/>
+                <Label Text="Viet Nam"
+                       Font="Italic,20"
+                       TextColor="Blue"/>
             </StackLayout>
-            <Button x:Name="TestToast" Text="Test Toast" BackgroundColor="LightSkyBlue" TextColor="White" Clicked="Button_Toast"/>
+            <Button x:Name="TestToast"
+                    Text="Test Toast"
+                    BackgroundColor="LightSkyBlue"
+                    TextColor="White"
+                    Clicked="Button_Toast"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

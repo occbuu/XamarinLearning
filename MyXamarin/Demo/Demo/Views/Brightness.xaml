@@ -5,10 +5,18 @@
              Title="Brightness">
     <ContentPage.Content>
         <StackLayout Padding="12,12,12,12">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <Slider x:Name="Slider1" Minimum="0" Maximum="100" Value="15" ValueChanged="Slider_ValueChanged" HorizontalOptions="FillAndExpand"></Slider>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Slider x:Name="Slider1"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="15"
+                        ValueChanged="Slider_ValueChanged"
+                        HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <Editor x:Name="Editor1" Text="Some Text" VerticalOptions="FillAndExpand"></Editor>
+            <Editor x:Name="Editor1"
+                    Text="Some Text"
+                    VerticalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

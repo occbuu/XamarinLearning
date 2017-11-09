@@ -5,11 +5,15 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Check In, Out"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="LblMssg" FontSize="Medium" BackgroundColor="Red"></Label>
-            <Button Text="Check In" Clicked="CheckIN_Clicked"></Button>
-            <Button Text="Check Out" Clicked="CheckOUT_Clicked"></Button>
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="LblMssg"
+                   FontSize="Medium"
+                   BackgroundColor="Red"/>
+            <Button Text="Check In"
+                    Clicked="CheckIN_Clicked"/>
+            <Button Text="Check Out"
+                    Clicked="CheckOUT_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -4,9 +4,10 @@
              x:Class="Demo.Views.Message">
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Send SMS" Clicked="SendSMS_Clicked" />
-
-            <Button Text="Phone Call" Clicked="PhoneCall_Clicked" />
+            <Button Text="Send SMS"
+                    Clicked="SendSMS_Clicked"/>
+            <Button Text="Phone Call"
+                    Clicked="PhoneCall_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

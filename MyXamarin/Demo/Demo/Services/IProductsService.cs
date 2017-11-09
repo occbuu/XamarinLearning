@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Demo.Services
 {
-    using Demo.Models;
+    using Models;
 
     public interface IProductsService : IService<ProductModel>
     {
