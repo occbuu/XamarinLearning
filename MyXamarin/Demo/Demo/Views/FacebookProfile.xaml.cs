@@ -20,7 +20,7 @@ namespace Demo.Views
         public FacebookProfile()
         {
             InitializeComponent();
-            Title = "Facebook orofile";
+            Title = "Facebook profile";
 
             var req = "https://www.facebook.com/v2.10/dialog/oauth?client_id="
                 + FacebookService.ClientId + "&response_type=token&redirect_uri="

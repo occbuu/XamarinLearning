@@ -50,7 +50,7 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Tabs", TargetType = typeof(Tabs) };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Log out" };
+            m = new MenuModel { Id = 0, Title = "Log out", TargetType = typeof(Login) };
             Models.Add(m);
         }
 

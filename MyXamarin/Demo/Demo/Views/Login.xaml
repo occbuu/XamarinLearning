@@ -30,6 +30,7 @@
                        Grid.Row="1"
                        HorizontalOptions="Start"/>
                 <Entry Grid.Row="1"
+                       x:Name="txtUserName"
                        Text="{Binding UserName}"
                        HorizontalTextAlignment="Center"
                        Placeholder="          User name"
@@ -39,6 +40,7 @@
                        Grid.Row="2"
                        HorizontalOptions="Start"/>
                 <Entry Grid.Row="2"
+                       x:Name="txtPassword"
                        Text="{Binding Password}"
                        HorizontalTextAlignment="Center"
                        Placeholder="          Password"

@@ -3,6 +3,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
+    using Helpers;
+
     /// <summary>
     /// Login
     /// </summary>
@@ -17,6 +19,16 @@ namespace Demo.Views
         public Login()
         {
             InitializeComponent();
+            Title = "Login";
+
+            Settings.AccessToken = null;
+            Settings.User = null;
+            Settings.Password = null;
+
+#if DEBUG
+            txtUserName.Text = "nvt87x@gmail.com";
+            txtPassword.Text = "P@ssword123";
+#endif
         }
 
         #endregion
@@ -26,9 +38,9 @@ namespace Demo.Views
             await Navigation.PushAsync(new Register());
         }
 
-        private void Forget_Clicked(object sender, System.EventArgs e)
+        private async void Forget_Clicked(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new Forget());
+            await Navigation.PushAsync(new ForgetPassword());
         }
 
         private async void GoFacebook_Clicked(object sender, System.EventArgs e)

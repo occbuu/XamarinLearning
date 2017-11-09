@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Demo.Services
 {
+    using Helpers;
     using Models;
 
     /// <summary>
@@ -70,7 +72,7 @@ namespace Demo.Services
             var rsp = await client.SendAsync(req);
             var content = await rsp.Content.ReadAsStringAsync();
             var jo = JsonConvert.DeserializeObject<dynamic>(content);
-            //var expires = jo.Value<DateTime>(".expires");
+            Settings.TokenExpiration = jo.Value<DateTime>(".expires");
             var res = jo.Value<string>("access_token");
 
             return res;

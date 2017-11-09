@@ -69,7 +69,6 @@ namespace Demo.ViewModels
                 }
                 else
                 {
-                    //await App.Current.MainPage.DisplayAlert("Notification", "Login success...", "OK");
                     await App.Current.MainPage.Navigation.PushModalAsync(new Menu());
                 }
 

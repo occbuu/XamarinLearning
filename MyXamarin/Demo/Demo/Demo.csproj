@@ -98,6 +98,9 @@
     <Compile Include="Views\FacebookProfile.xaml.cs">
       <DependentUpon>FacebookProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ForgetPassword.xaml.cs">
+      <DependentUpon>ForgetPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GetDevice.xaml.cs">
       <DependentUpon>GetDevice.xaml</DependentUpon>
     </Compile>
@@ -374,6 +377,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\OAuthNativeFlow.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ForgetPassword.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
