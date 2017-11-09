@@ -20,7 +20,7 @@ namespace Demo.Droid
             var uri = new Uri(Intent.Data.ToString());
 
             // Load redirectUrl page
-            Settings.Authenticator.OnPageLoading(uri);
+            Settings._authenticator.OnPageLoading(uri);
 
             Finish();
         }
