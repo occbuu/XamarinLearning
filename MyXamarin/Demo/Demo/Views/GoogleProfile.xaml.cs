@@ -1,11 +1,15 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json;
+using System;
+using System.Diagnostics;
+using System.Linq;
+using Xamarin.Auth;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Demo.Views
 {
+    using Helpers;
     using Models;
-    using Services;
     using ViewModels;
 
     /// <summary>
@@ -24,7 +28,7 @@ namespace Demo.Views
             InitializeComponent();
             Title = "Google profile";
 
-            var req = "https://accounts.google.com/o/oauth2/v2/auth"
+            /*var req = "https://accounts.google.com/o/oauth2/v2/auth"
                 + "?response_type=code&scope=openid&redirect_uri="
                 + GoogleService.RedirectUri + "&client_id="
                 + GoogleService.ClientId;
@@ -35,7 +39,11 @@ namespace Demo.Views
             };
 
             v.Navigated += V_Navigated;
-            Content = v;
+            Content = v;*/
+
+            _store = AccountStore.Create();
+            _account = _store.FindAccountsForService(Constants.AppName).FirstOrDefault();
+            Login();
         }
 
         /// <summary>
@@ -140,6 +148,109 @@ namespace Demo.Views
                 }
             };
         }
+
+        /// <summary>
+        /// Login
+        /// </summary>
+        private void Login()
+        {
+            string clientId = null;
+            string redirectUri = null;
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    clientId = Constants.iOSClientId;
+                    redirectUri = Constants.iOSRedirectUrl;
+                    break;
+
+                case Device.Android:
+                    clientId = Constants.AndroidClientId;
+                    redirectUri = Constants.AndroidRedirectUrl;
+                    break;
+            }
+
+            var auth = new OAuth2Authenticator(clientId, null, Constants.Scope,
+                new Uri(Constants.AuthorizeUrl), new Uri(redirectUri),
+                new Uri(Constants.AccessTokenUrl), null, true);
+
+            auth.Completed += Auth_Completed;
+            auth.Error += Auth_Error; ;
+
+            Settings._authenticator = auth;
+            var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
+            presenter.Login(auth);
+        }
+
+        /// <summary>
+        /// Authenticator completed
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private async void Auth_Completed(object sender, AuthenticatorCompletedEventArgs e)
+        {
+            var auth = sender as OAuth2Authenticator;
+            if (auth != null)
+            {
+                auth.Completed -= Auth_Completed;
+                auth.Error -= Auth_Error;
+            }
+
+            UserModel user = null;
+            if (e.IsAuthenticated)
+            {
+                // If the user is authenticated, request their basic user data from Google
+                // UserInfoUrl = https://www.googleapis.com/oauth2/v2/userinfo
+                var request = new OAuth2Request("GET", new Uri(Constants.UserInfoUrl), null, e.Account);
+                var response = await request.GetResponseAsync();
+                if (response != null)
+                {
+                    // Deserialize the data and store it in the account store
+                    // The users email address will be used to identify data in SimpleDB
+                    string userJson = await response.GetResponseTextAsync();
+                    user = JsonConvert.DeserializeObject<UserModel>(userJson);
+                }
+
+                if (_account != null)
+                {
+                    _store.Delete(_account, Constants.AppName);
+                }
+
+                await _store.SaveAsync(_account = e.Account, Constants.AppName);
+                await DisplayAlert("Email address", user.Email, "OK");
+            }
+        }
+
+        /// <summary>
+        /// Authenticator error
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">Event</param>
+        private void Auth_Error(object sender, AuthenticatorErrorEventArgs e)
+        {
+            var auth = sender as OAuth2Authenticator;
+            if (auth != null)
+            {
+                auth.Completed -= Auth_Completed;
+                auth.Error -= Auth_Error;
+            }
+
+            Debug.WriteLine("Authentication error: " + e.Message);
+        }
+
+        #endregion
+
+        #region -- Fields --
+
+        /// <summary>
+        /// Account
+        /// </summary>
+        private Account _account;
+
+        /// <summary>
+        /// Account store
+        /// </summary>
+        private AccountStore _store;
 
         #endregion
     }

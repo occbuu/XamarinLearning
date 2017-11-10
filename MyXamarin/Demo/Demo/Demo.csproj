@@ -122,9 +122,6 @@
     <Compile Include="Views\NewItemPage.xaml.cs">
       <DependentUpon>NewItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OAuthNativeFlow.xaml.cs">
-      <DependentUpon>OAuthNativeFlow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductPage2.xaml.cs">
       <DependentUpon>ProductPage2.xaml</DependentUpon>
     </Compile>
@@ -371,12 +368,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Tabs.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\OAuthNativeFlow.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

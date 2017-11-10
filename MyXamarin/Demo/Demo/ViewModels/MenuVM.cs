@@ -23,13 +23,10 @@ namespace Demo.ViewModels
             var m = new MenuModel { Id = 0, Title = "Profile", Icon = "Profile.png" };
             Models.Add(m);
 
-            m = new MenuModel { Id = 0, Title = "Google Plus", TargetType = typeof(OAuthNativeFlow) };
+            m = new MenuModel { Id = 0, Title = "List objects", Icon = "ListObject.png", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Check In/Out", Icon = "CheckInOut.png", TargetType = typeof(CheckINOUT) };
-            Models.Add(m);
-
-            m = new MenuModel { Id = 0, Title = "List objects", Icon = "ListObject.png", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Test SQLite", TargetType = typeof(ProductPage2) };

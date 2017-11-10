@@ -71,7 +71,7 @@ namespace Demo.Views
         /// <param name="e">Event</param>
         private async void GoGoogle_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new OAuthNativeFlow());
+            await Navigation.PushAsync(new GoogleProfile());
         }
     }
 }
