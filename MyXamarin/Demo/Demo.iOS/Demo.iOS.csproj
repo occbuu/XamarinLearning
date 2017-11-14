@@ -290,6 +290,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Tabs.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logout%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Step1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Step2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Step3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
