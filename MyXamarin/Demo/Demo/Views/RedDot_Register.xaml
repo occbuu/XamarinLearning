@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.RedDot_Register">
+    <ContentPage>
+        <ContentPage.Content>
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Margin="20,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="68"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="Registration" Font="Bold,50" />
+                    <Label Grid.Row="1" BackgroundColor="#bababa"
+                           HeightRequest="1"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"/>
+                    <Image Grid.Row="2" Source="Step1.png" HorizontalOptions="CenterAndExpand" />
+                    <Button Grid.Row="3"
+                            Text="CONNECT WITH FACEBOOK"
+                            TextColor="White"
+                            BackgroundColor="#3B5998"
+                            WidthRequest="155"
+                            VerticalOptions="Start"
+                            Image="facebook.png"/>
+                    <Button Grid.Row="4"
+                            Text="CONNECT WITH GOOGLE"
+                            TextColor="White"
+                            BackgroundColor="#E74C3C"
+                            WidthRequest="155"
+                            VerticalOptions="StartAndExpand"
+                            Image="google_plus.png"/>
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label BackgroundColor="#bababa"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"/>
+                        <Label Text="OR"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="10,0,10,0"/>
+                        <Label BackgroundColor="#bababa"
+                           Grid.Column="2"
+                           HeightRequest="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"/>
+                    </Grid>
+                    <Entry Grid.Row="6"
+                       x:Name="txtUserName"
+                       Text="{Binding UserName}"
+                       Placeholder="NAME"
+                       PlaceholderColor="#bababa"
+                       FontSize="16"/>
+                    <Entry Grid.Row="7"
+                       x:Name="txtEmail"
+                       Text="{Binding Email}"
+                       Placeholder="EMAIL"
+                       PlaceholderColor="#bababa"
+                       FontSize="16"/>
+                    <Entry Grid.Row="8"
+                       x:Name="txtPassword"
+                       Text="{Binding Email}"
+                       Placeholder="PASSWORD"
+                       IsPassword="True"
+                       PlaceholderColor="#bababa"
+                       FontSize="16"/>
+                    <Button Grid.Row="9"
+                        Text="Create Account"
+                        TextColor="White"
+                        BackgroundColor="#1F9CDF"
+                        HeightRequest="50"
+                        VerticalOptions="Start"
+                        Command="{Binding CreateAccount}"/>
+                </Grid>
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage>
+        <ContentPage.Content>
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Margin="20,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="68"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="Registration" Font="Bold,50" />
+                    <Label Grid.Row="1" BackgroundColor="#bababa"
+                           HeightRequest="1"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"/>
+                    <Image Grid.Row="2" Source="Step2.jpg" HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="3" Text="Basic Information" Font="Bold, 30" />
+                    <Label Grid.Row="4" Text="Company Information" />
+                    <Label Grid.Row="5" Text="Name *" />
+                    <Entry Grid.Row="6" x:Name="txtNameBasic" />
+                    <Label Grid.Row="7" Text="Segment *" />
+                    <Entry Grid.Row="8" x:Name="txtSegmentBasic" />
+                    <Label Grid.Row="9" Text="Director / owner name" />
+                    <Label Grid.Row="10" Text="Salutation *" />
+                    <Picker Grid.Row="11" x:Name="picSalutationBasic" SelectedIndexChanged="picSalutationBasic_SelectedIndexChanged" />
+                    <Label Grid.Row="12" Text="First Name *" />
+                    <Entry Grid.Row="13" x:Name="txtFirstNameBasic" />
+                    <Label Grid.Row="14" Text="Last Name *" />
+                    <Entry Grid.Row="15" x:Name="txtLastNameBasic" />
+                </Grid>
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+</CarouselPage>

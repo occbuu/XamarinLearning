@@ -7,7 +7,14 @@
     <StackLayout>
         <StackLayout.Children>
             <ctr:CircleImage  Source="avatar.png" HeightRequest="100" WidthRequest="100"/>
-            <Label Text="Main Menu" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="Red"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Main Menu" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="Red"/>
+                <Image Source="Logout.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogoutCommand}}" Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
         </StackLayout.Children>
         <ListView x:Name="MenuItemsListView"
                   SeparatorVisibility="None"

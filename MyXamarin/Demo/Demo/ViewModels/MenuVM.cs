@@ -23,6 +23,9 @@ namespace Demo.ViewModels
             var m = new MenuModel { Id = 0, Title = "Profile", Icon = "Profile.png" };
             Models.Add(m);
 
+            m = new MenuModel { Id = 0, Title = "Register_RedDot", TargetType = typeof(RedDot_Register) };
+            Models.Add(m);
+
             m = new MenuModel { Id = 0, Title = "List objects", Icon = "ListObject.png", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
@@ -45,9 +48,6 @@ namespace Demo.ViewModels
             Models.Add(m);
 
             m = new MenuModel { Id = 0, Title = "Tabs", Icon = "Tabs.png", TargetType = typeof(Tabs) };
-            Models.Add(m);
-
-            m = new MenuModel { Id = 0, Title = "Log out", TargetType = typeof(Login) };
             Models.Add(m);
         }
 

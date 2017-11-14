@@ -3,6 +3,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Demo
 {
+    using Demo.Helpers;
+    using Demo.Views;
     using ViewModels;
 
     /// <summary>
@@ -30,5 +32,14 @@ namespace Demo
         public ListView ListView { get; set; }
 
         #endregion
+
+        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            Settings.AccessToken = "";
+            Settings.User = "";
+            Settings.Password = "";
+
+            Application.Current.MainPage = new NavigationPage(new Login());
+        }
     }
 }
