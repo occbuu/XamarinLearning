@@ -228,82 +228,82 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\avatar.png" />
+    <AndroidResource Include="Resources\avatar%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\cat.png" />
+    <AndroidResource Include="Resources\cat%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\dog.png" />
+    <AndroidResource Include="Resources\dog%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\facebook.png" />
+    <AndroidResource Include="Resources\facebook%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\google_plus.png" />
+    <AndroidResource Include="Resources\google_plus%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\icons_password.png" />
+    <AndroidResource Include="Resources\icons_password%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\icons_user.png" />
+    <AndroidResource Include="Resources\icons_user%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\lion.png" />
+    <AndroidResource Include="Resources\lion%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mobile1.jpg" />
+    <AndroidResource Include="Resources\mobile1%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mobile2.jpg" />
+    <AndroidResource Include="Resources\mobile2%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mobile3.jpg" />
+    <AndroidResource Include="Resources\mobile3%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mobile4.jpg" />
+    <AndroidResource Include="Resources\mobile4%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\CheckInOut.png" />
+    <AndroidResource Include="Resources\CheckInOut%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\GetDevice.png" />
+    <AndroidResource Include="Resources\GetDevice%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\ListObject.png" />
+    <AndroidResource Include="Resources\ListObject%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mainMenu.png" />
+    <AndroidResource Include="Resources\mainMenu%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Position.png" />
+    <AndroidResource Include="Resources\Position%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Profile.png" />
+    <AndroidResource Include="Resources\Profile%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Slides.png" />
+    <AndroidResource Include="Resources\Slides%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Tabs.png" />
+    <AndroidResource Include="Resources\Tabs%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Logout%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splashscreen.png" />
+    <BundleResource Include="Resources\splashscreen%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Step1.png" />
+    <BundleResource Include="Resources\Step1%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Step2.jpg" />
+    <BundleResource Include="Resources\Step2%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Step3.png" />
+    <BundleResource Include="Resources\Step3%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
