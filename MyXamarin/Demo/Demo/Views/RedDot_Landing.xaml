@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.RedDot_Landing">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Margin="10,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="RedDotPower.png" HeightRequest="50" WidthRequest="100"/>
+                    <Label Grid.Row="1" TextColor="#1D99E5" Text="Retail Electricity" Font="Bold,40"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Label Grid.Row="2" Margin="20,0,20,0" HorizontalTextAlignment="Center" 
+                           Text="Cuộc gặp gỡ của quan chức Mỹ - Nhật - Ấn - Australia bên lề hội nghị ASEAN ở Philippines, dù chỉ ở cấp quan chức, ngay lập tức đã kéo theo phản ứng từ Trung Quốc và làm sống lại một ý tưởng tưởng đã chết yểu 10 năm trước: Tứ giác Kim cương. Tổng thống Mỹ Donald Trump, trong bài phát biểu tại Việt Nam, cũng đã nhấn mạnh tầm quan trọng của một Ấn Độ - Thái Bình Dương tự do và mở, khu vực được kết nối với nhau bởi 4 trọng tâm chính là Tứ giác Kim cương " />
+                    <Button Grid.Row="3" HorizontalOptions="Center" Text="Help me recommend" TextColor="White" BackgroundColor="#1D99E5"></Button>
+                    <Button Grid.Row="4" HorizontalOptions="Center" Text="Find out how much you can save" TextColor="White" BackgroundColor="#1D99E5"></Button>
+                    <Frame Grid.Row="5" BackgroundColor="#5C5C5C" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                           WidthRequest="300" HeightRequest="80">
+                        <Label Text="eSAVE" TextColor="White" FontSize="40" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Grid Grid.Row="6" Margin="10,0,0,0"  BackgroundColor="#DFDFDF">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                            <Label Text="20% Discount" TextColor="Black" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                        </Frame>
+                        <Frame Grid.Row="1" BackgroundColor="#F6F6F6" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray"
+                            WidthRequest="300">
+                            <Label Text="eSAVE is a discount of the regulated tariff, as the regulated tariff changes eSAVE retains the same discount to the tariff throughout the contract length" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="2" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                        </Frame>
+                        <Button Grid.Row="3" Text="Register" HorizontalOptions="Center" TextColor="White" BackgroundColor="#5C5C5C" />
+                    </Grid>
+
+                    <Frame Grid.Row="7" Margin="0,10,0,0" BackgroundColor="#5C5C5C" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                           WidthRequest="300" HeightRequest="80">
+                        <Label Text="eFIX" TextColor="White" FontSize="40" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Grid Grid.Row="8" Margin="10,0,0,0" BackgroundColor="#DFDFDF">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                            <Label Text="0.1683 per kWh" TextColor="Black" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                        </Frame>
+                        <Frame Grid.Row="1" BackgroundColor="#F6F6F6" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray"
+                            WidthRequest="300">
+                            <Label Text="eSAVE is a discount of the regulated tariff, as the regulated tariff changes eSAVE retains the same discount to the tariff throughout the contract length" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="2" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                        </Frame>
+                        <Button Grid.Row="3" Text="Register" HorizontalOptions="Center" TextColor="White" BackgroundColor="#5C5C5C" />
+                    </Grid>
+
+                    <Frame Grid.Row="9" Margin="0,10,0,0" BackgroundColor="#EC0C26" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                           WidthRequest="300" HeightRequest="80">
+                        <Label Text="eQ" TextColor="White" FontSize="40" HorizontalOptions="Center"/>
+                    </Frame>
+                    <Grid Grid.Row="10" Margin="10,0,0,0" BackgroundColor="#DFDFDF">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" BackgroundColor="#F6F6F6" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                            <Frame Padding="5,0,5,0" BackgroundColor="#EC0C26">
+                                <Label Text="Save $1,365.00 (22%)" TextColor="White" Font="Bold,15" HorizontalOptions="CenterAndExpand"/>
+                            </Frame>
+                        </Frame>
+                        <Frame Grid.Row="1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray"
+                            WidthRequest="300">
+                            <Label Text="0.17 per kWh (peak)" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="0.145 per kWh (off peak)" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="2" BackgroundColor="#F6F6F6" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                            <Label Text="Peak and off peak paln, customers benefit from consuming electricity in cheaper off peak hours, assumption about consumption hass to be made" TextColor="Black" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                        </Frame>
+                        <Frame Grid.Row="2" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" OutlineColor="Gray" HeightRequest="25" WidthRequest="300">
+                        </Frame>
+                        <Button Grid.Row="3" Text="Register" HorizontalOptions="Center" TextColor="White" BackgroundColor="#EC0C26" />
+                    </Grid>
+
+                    <StackLayout Grid.Row="11" Margin="0,30,0,0" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Image Source="IconInstagram.png" HorizontalOptions="Center" />
+                        <Image Source="IconSnapChat.png" HorizontalOptions="Center" />
+                        <Image Source="IconTwitter.png" HorizontalOptions="Center" />
+                        <Image Source="IconFacebook.png" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <StackLayout Grid.Row="12" Margin="0,10,0,0" Spacing="20" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Home" FontSize="Medium"/>
+                        <Label Text="Services" FontSize="Medium"/>
+                        <Label Text="About" FontSize="Medium"/>
+                        <Label Text="Terms" FontSize="Medium"/>
+                    </StackLayout>
+                    <Label Grid.Row="13" HorizontalOptions="Center" Margin="0,10,0,0" Text="Red Dot Power &#169; 2017" FontSize="Small" TextColor="#C7C7C7"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -20,6 +20,7 @@ namespace Demo
         public Menu()
         {
             InitializeComponent();
+            MasterPage.Title = "zxcxzc";
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 

@@ -26,6 +26,9 @@ namespace Demo.ViewModels
             m = new MenuModel { Id = 0, Title = "Register_RedDot", TargetType = typeof(RedDot_Register) };
             Models.Add(m);
 
+            m = new MenuModel { Id = 0, Title = "Landing_RedDot", TargetType = typeof(RedDot_Landing) };
+            Models.Add(m);
+
             m = new MenuModel { Id = 0, Title = "List objects", Icon = "ListObject.png", TargetType = typeof(ListObjects) };
             Models.Add(m);
 
