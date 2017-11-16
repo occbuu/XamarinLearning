@@ -13,6 +13,7 @@
 	<uses-permission android:name="android.permission.LOCATION_HARDWARE" />
 	<uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
 	<application android:label="Demo.Android">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBCfvjL1oXPcYh-msT9JJJxDbkd2Wwga4g"></meta-data>
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" 
+               android:value="AIzaSyBCfvjL1oXPcYh-msT9JJJxDbkd2Wwga4g"></meta-data>
 	</application>
 </manifest>

@@ -35,8 +35,8 @@ namespace Demo.Views
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
 
-                //var postion = await locator.GetPositionAsync();
-                var position = await locator.GetLastKnownLocationAsync();
+                var position = await locator.GetPositionAsync(TimeSpan.FromMinutes(10));
+                //var position = await locator.GetLastKnownPositionAsync();
                 var longitude = position.Longitude.ToString().Replace(",", ".");
                 var latitude = position.Latitude.ToString().Replace(",", ".");
 
@@ -101,8 +101,8 @@ namespace Demo.Views
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 50;
 
-                //var postion = await locator.GetPositionAsync();
-                var position = await locator.GetLastKnownLocationAsync();
+                var position = await locator.GetPositionAsync(TimeSpan.FromMinutes(10));
+                //var position = await locator.GetLastKnownPositionAsync();
                 var longitude = position.Longitude.ToString().Replace(",", ".");
                 var latitude = position.Latitude.ToString().Replace(",", ".");
 

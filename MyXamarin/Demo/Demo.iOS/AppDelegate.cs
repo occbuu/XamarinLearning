@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Google.Maps;
 using Plugin.Toasts;
 using System;
 using UIKit;
@@ -19,9 +20,12 @@ namespace Demo.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+        const string Mapkey = "AIzaSyBPOzAeh9n3-PwBNy0dtW7-ZIBkgS0XB48";
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            MapServices.ProvideAPIKey(Mapkey);
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.FormsMaps.Init();
 
             DependencyService.Register<ToastNotification>(); // Register your dependency
             // If you are using Android you must pass through the activity

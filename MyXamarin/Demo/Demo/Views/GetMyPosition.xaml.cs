@@ -28,7 +28,7 @@ namespace Demo.Views
             locator.DesiredAccuracy = 50;
 
             //var postion = await locator.GetLastKnownLocationAsync();
-            var postion = await locator.GetPositionAsync();
+            var postion = await locator.GetPositionAsync(TimeSpan.FromMinutes(10));
 
             var address = await locator.GetAddressesForPositionAsync(postion);
 
