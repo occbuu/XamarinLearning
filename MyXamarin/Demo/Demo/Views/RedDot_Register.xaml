@@ -12,7 +12,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="68"/>
                         <RowDefinition Height="10"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="120"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
@@ -25,7 +25,7 @@
                            HeightRequest="1"
                            HorizontalOptions="Fill"
                            VerticalOptions="Center"/>
-                    <Image Grid.Row="2" Source="Step1.png" HorizontalOptions="CenterAndExpand" />
+                    <Image Grid.Row="2" Source="Step1.png" HorizontalOptions="CenterAndExpand"/>
                     <Button Grid.Row="3"
                             Text="CONNECT WITH FACEBOOK"
                             TextColor="White"
@@ -102,7 +102,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="68"/>
                             <RowDefinition Height="10"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="120"/>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
@@ -122,8 +122,8 @@
                            HeightRequest="1"
                            HorizontalOptions="Fill"
                            VerticalOptions="Center"/>
-                        <Image Grid.Row="2" Source="Step2.jpg" HorizontalOptions="CenterAndExpand"/>
-                        <Label Grid.Row="3" Text="Basic Information" Font="Bold, 30" />
+                        <Image Grid.Row="2" Source="Step2.png" HorizontalOptions="CenterAndExpand"/>
+                        <Label Grid.Row="3" Text="Basic Information" Font="Bold, 24" />
                         <Label Grid.Row="4" Text="Company Information" />
                         <Label Grid.Row="5" Text="Name *" />
                         <Entry Grid.Row="6" x:Name="txtNameBasic" />
@@ -153,7 +153,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="68"/>
                             <RowDefinition Height="10"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="120"/>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
                             <RowDefinition Height="40"/>
@@ -174,7 +174,7 @@
                            HorizontalOptions="Fill"
                            VerticalOptions="Center"/>
                         <Image Grid.Row="2" Source="Step3.png" HorizontalOptions="CenterAndExpand"/>
-                        <Label Grid.Row="3" Text="Plan &amp; Supporting Document" Font="Bold, 30" />
+                        <Label Grid.Row="3" Text="Plan &amp; Supporting Document" Font="Bold, 24" />
                         <Label Grid.Row="4" Text="Plan Information" />
                         <Label Grid.Row="5" Text="Plan *" />
                         <Entry Grid.Row="6" x:Name="txtPlan" />
