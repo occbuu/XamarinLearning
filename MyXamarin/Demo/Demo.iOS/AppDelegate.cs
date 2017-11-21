@@ -32,6 +32,9 @@ namespace Demo.iOS
             ToastNotification.Init();
 
             global::Xamarin.Auth.Presenters.XamarinIOS.AuthenticationConfiguration.Init();
+            //init for Scanner barcode
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

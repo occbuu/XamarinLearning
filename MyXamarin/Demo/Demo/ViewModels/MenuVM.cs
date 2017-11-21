@@ -52,6 +52,9 @@ namespace Demo.ViewModels
 
             m = new MenuModel { Id = 0, Title = "Tabs", Icon = "Tabs.png", TargetType = typeof(Tabs) };
             Models.Add(m);
+
+            m = new MenuModel { Id = 0, Title = "Scanner barcode", Icon = "", TargetType = typeof(ScannerBarcode) };
+            Models.Add(m);
         }
 
         #endregion

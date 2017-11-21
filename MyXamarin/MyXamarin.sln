@@ -98,6 +98,7 @@ Global
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.Debug|iPhone.Build.0 = Debug|iPhone
 		{B21B0A35-6EC5-41D5-9E66-14FE6B99EA92}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
@@ -136,7 +137,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {403933C8-2304-4277-B229-2297FB8E02C3}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {403933C8-2304-4277-B229-2297FB8E02C3}
 	EndGlobalSection
 EndGlobal
