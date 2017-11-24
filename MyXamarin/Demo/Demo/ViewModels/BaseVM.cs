@@ -27,7 +27,11 @@ namespace Demo.ViewModels
         /// <summary>
         /// Initialize
         /// </summary>
-        public BaseVM() { }
+        public BaseVM()
+        {
+            _pag = Application.Current.MainPage;
+            _nav = _pag.Navigation;
+        }
 
         /// <summary>
         /// On property changed
@@ -113,6 +117,22 @@ namespace Demo.ViewModels
         #endregion
 
         #region -- Fields --
+
+        /// <summary>
+        /// Identify
+        /// </summary>
+        protected int _id;
+
+        /// <summary>
+        /// Main page
+        /// </summary>
+        protected Page _pag;
+
+        /// <summary>
+        /// Navigation
+        /// </summary>
+
+        protected INavigation _nav;
 
         /// <summary>
         /// Busy
