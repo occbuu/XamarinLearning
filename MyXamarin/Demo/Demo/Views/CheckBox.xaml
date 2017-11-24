@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Demo.Views.CheckBox"
+              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:CheckBox DefaultText="Android"
+                               HorizontalOptions="FillAndExpand"
+                               FontSize="18" />
+            <controls:CheckBox DefaultText="Android"
+                               HorizontalOptions="FillAndExpand"
+                               FontSize="18" />
+            <controls:CheckBox DefaultText="IOS"
+                               HorizontalOptions="FillAndExpand"
+                               FontSize="18" />
+            <controls:CheckBox DefaultText="WPF"
+                               HorizontalOptions="FillAndExpand"
+                               FontSize="18" />
+            <DatePicker></DatePicker>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Toggle:"></Label>
+                <Switch></Switch>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
