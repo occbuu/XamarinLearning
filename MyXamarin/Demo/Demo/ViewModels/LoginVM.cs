@@ -69,7 +69,8 @@ namespace Demo.ViewModels
                 }
                 else
                 {
-                    await _nav.PushModalAsync(new Menu());
+                    //await _nav.PushModalAsync(new Menu());
+                    await App.Current.MainPage.Navigation.PushModalAsync(new Menu());
                 }
 
             }
@@ -91,7 +92,8 @@ namespace Demo.ViewModels
 
             try
             {
-                await _nav.PushModalAsync(new Register());
+                //await _nav.PushModalAsync(new Register());
+                await App.Current.MainPage.Navigation.PushModalAsync(new Register());
             }
             catch (Exception ex)
             {
@@ -132,7 +134,8 @@ namespace Demo.ViewModels
 
             try
             {
-                await _nav.PushModalAsync(new FacebookProfile());
+                //await _nav.PushModalAsync(new FacebookProfile());
+                await App.Current.MainPage.Navigation.PushModalAsync(new FacebookProfile());
             }
             catch (Exception ex)
             {
@@ -152,7 +155,8 @@ namespace Demo.ViewModels
 
             try
             {
-                await _nav.PushModalAsync(new GoogleProfile());
+                //await _nav.PushModalAsync(new GoogleProfile());
+                await App.Current.MainPage.Navigation.PushModalAsync(new GoogleProfile());
             }
             catch (Exception ex)
             {

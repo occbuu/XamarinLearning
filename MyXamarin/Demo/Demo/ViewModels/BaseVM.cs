@@ -29,8 +29,8 @@ namespace Demo.ViewModels
         /// </summary>
         public BaseVM()
         {
-            _pag = Application.Current.MainPage;
-            _nav = _pag.Navigation;
+            //_pag = Application.Current.MainPage;
+            //_nav = _pag.Navigation;
         }
 
         /// <summary>
