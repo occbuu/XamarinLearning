@@ -146,6 +146,9 @@
     <Compile Include="Views\ScannerBarcode.xaml.cs">
       <DependentUpon>ScannerBarcode.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SearchBar.xaml.cs">
+      <DependentUpon>SearchBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Slide.xaml.cs">
       <DependentUpon>Slide.xaml</DependentUpon>
     </Compile>
@@ -456,6 +459,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\VibrateDemo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SearchBar.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

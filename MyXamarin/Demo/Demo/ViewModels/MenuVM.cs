@@ -61,6 +61,9 @@ namespace Demo.ViewModels
 
             m = new MenuModel { Id = 0, Title = "Vibrate", Icon = "", TargetType = typeof(VibrateDemo) };
             Models.Add(m);
+
+            m = new MenuModel { Id = 0, Title = "Search Bar", Icon = "", TargetType = typeof(SearchBar) };
+            Models.Add(m);
         }
 
         #endregion

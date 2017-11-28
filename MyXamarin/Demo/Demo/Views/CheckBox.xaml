@@ -17,6 +17,8 @@
             <controls:CheckBox DefaultText="WPF"
                                HorizontalOptions="FillAndExpand"
                                FontSize="18" />
+            <controls:CustomRadioButton Text="IOS"></controls:CustomRadioButton>
+            <controls:CustomRadioButton Text="Android"></controls:CustomRadioButton>
             <DatePicker></DatePicker>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Toggle:"></Label>
