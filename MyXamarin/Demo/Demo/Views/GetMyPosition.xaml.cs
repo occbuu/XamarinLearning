@@ -27,8 +27,8 @@ namespace Demo.Views
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 50;
 
-            var postion = await locator.GetLastKnownPositionAsync();
-            //var postion = await locator.GetPositionAsync(TimeSpan.FromMinutes(10));
+            //var postion = await locator.GetLastKnownPositionAsync();
+            var postion = await locator.GetPositionAsync(TimeSpan.FromMinutes(10));
 
             var address = await locator.GetAddressesForPositionAsync(postion);
 
@@ -86,7 +86,7 @@ namespace Demo.Views
 
         private async void BtnBack_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new GetMyPosition());
+            await Navigation.PushAsync(new GetMyPosition());
             //Chuyen qua trang moi la Navigation.PushAsync(new TrangMoi())
         }
     }
